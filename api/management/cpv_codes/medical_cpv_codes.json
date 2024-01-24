@@ -1,0 +1,3207 @@
+[
+  {
+    "code": "33000000",
+    "name": "Medical equipments, pharmaceuticals and personal care products",
+    "parent": null
+  },
+  {
+    "code": "33100000",
+    "name": "Medical equipments",
+    "parent": "33000000"
+  },
+  {
+    "code": "33110000",
+    "name": "Imaging equipment for medical, dental and veterinary use",
+    "parent": "33100000"
+  },
+  {
+    "code": "33111000",
+    "name": "X-ray devices",
+    "parent": "33110000"
+  },
+  {
+    "code": "33111100",
+    "name": "X-ray table",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111200",
+    "name": "X-ray workstations",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111300",
+    "name": "X-ray processing devices",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111400",
+    "name": "X-ray fluoroscopy devices",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111500",
+    "name": "Dental X-ray",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111600",
+    "name": "Radiography devices",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111610",
+    "name": "Magnetic resonance unit",
+    "parent": "33111600"
+  },
+  {
+    "code": "33111620",
+    "name": "Gamma cameras",
+    "parent": "33111600"
+  },
+  {
+    "code": "33111640",
+    "name": "Thermographs",
+    "parent": "33111600"
+  },
+  {
+    "code": "33111650",
+    "name": "Mammography devices",
+    "parent": "33111600"
+  },
+  {
+    "code": "33111660",
+    "name": "Bone densitometers",
+    "parent": "33111600"
+  },
+  {
+    "code": "33111700",
+    "name": "Angiography room",
+    "parent": "33111000"
+  },
+  {
+    "code": "33111710",
+    "name": "Angiography supplies",
+    "parent": "33111700"
+  },
+  {
+    "code": "33111720",
+    "name": "Angiography devices",
+    "parent": "33111700"
+  },
+  {
+    "code": "33111721",
+    "name": "Digital angiography devices",
+    "parent": "33111720"
+  },
+  {
+    "code": "33111730",
+    "name": "Angioplasty supplies",
+    "parent": "33111700"
+  },
+  {
+    "code": "33111740",
+    "name": "Angioplasty devices",
+    "parent": "33111700"
+  },
+  {
+    "code": "33111800",
+    "name": "Diagnostic X-ray system",
+    "parent": "33111000"
+  },
+  {
+    "code": "33112000",
+    "name": "Echo, ultrasound and doppler imaging equipment",
+    "parent": "33110000"
+  },
+  {
+    "code": "33112100",
+    "name": "Ultrasonic heart detector",
+    "parent": "33112000"
+  },
+  {
+    "code": "33112200",
+    "name": "Ultrasonic unit",
+    "parent": "33112000"
+  },
+  {
+    "code": "33112300",
+    "name": "Ultrasound scanners",
+    "parent": "33112000"
+  },
+  {
+    "code": "33112310",
+    "name": "Colour-flow doppler",
+    "parent": "33112300"
+  },
+  {
+    "code": "33112320",
+    "name": "Doppler equipment",
+    "parent": "33112300"
+  },
+  {
+    "code": "33112330",
+    "name": "Echoencephalographs",
+    "parent": "33112300"
+  },
+  {
+    "code": "33112340",
+    "name": "Echocardiographs",
+    "parent": "33112300"
+  },
+  {
+    "code": "33113000",
+    "name": "Magnetic resonance imaging equipment",
+    "parent": "33110000"
+  },
+  {
+    "code": "33113100",
+    "name": "Magnetic resonance scanners",
+    "parent": "33113000"
+  },
+  {
+    "code": "33113110",
+    "name": "Nuclear magnetic resonance scanners",
+    "parent": "33113100"
+  },
+  {
+    "code": "33114000",
+    "name": "Spectroscopy devices",
+    "parent": "33110000"
+  },
+  {
+    "code": "33115000",
+    "name": "Tomography devices",
+    "parent": "33110000"
+  },
+  {
+    "code": "33115100",
+    "name": "CT scanners",
+    "parent": "33115000"
+  },
+  {
+    "code": "33115200",
+    "name": "CAT scanners",
+    "parent": "33115000"
+  },
+  {
+    "code": "33120000",
+    "name": "Recording systems and exploration devices",
+    "parent": "33100000"
+  },
+  {
+    "code": "33121000",
+    "name": "Long term ambulatory recording system",
+    "parent": "33120000"
+  },
+  {
+    "code": "33121100",
+    "name": "Electro-encephalographs",
+    "parent": "33121000"
+  },
+  {
+    "code": "33121200",
+    "name": "Scintigraphy devices",
+    "parent": "33121000"
+  },
+  {
+    "code": "33121300",
+    "name": "Electromyographs",
+    "parent": "33121000"
+  },
+  {
+    "code": "33121400",
+    "name": "Audiometers",
+    "parent": "33121000"
+  },
+  {
+    "code": "33121500",
+    "name": "Electrocardiogram",
+    "parent": "33121000"
+  },
+  {
+    "code": "33122000",
+    "name": "Ophthalmology equipment",
+    "parent": "33120000"
+  },
+  {
+    "code": "33123000",
+    "name": "Cardiovascular devices",
+    "parent": "33120000"
+  },
+  {
+    "code": "33123100",
+    "name": "Tensiometer",
+    "parent": "33123000"
+  },
+  {
+    "code": "33123200",
+    "name": "Electrocardiography devices",
+    "parent": "33123000"
+  },
+  {
+    "code": "33123210",
+    "name": "Cardiac-monitoring devices",
+    "parent": "33123200"
+  },
+  {
+    "code": "33123220",
+    "name": "Cardio-angiography devices",
+    "parent": "33123200"
+  },
+  {
+    "code": "33123230",
+    "name": "Cardiographs",
+    "parent": "33123200"
+  },
+  {
+    "code": "33124000",
+    "name": "Diagnostics and radiodiagnostic devices and supplies",
+    "parent": "33120000"
+  },
+  {
+    "code": "33124100",
+    "name": "Diagnostic devices",
+    "parent": "33124000"
+  },
+  {
+    "code": "33124110",
+    "name": "Diagnostic systems",
+    "parent": "33124100"
+  },
+  {
+    "code": "33124120",
+    "name": "Diagnostic ultrasound devices",
+    "parent": "33124100"
+  },
+  {
+    "code": "33124130",
+    "name": "Diagnostic supplies",
+    "parent": "33124100"
+  },
+  {
+    "code": "33124131",
+    "name": "Reagent strips",
+    "parent": "33124130"
+  },
+  {
+    "code": "33124200",
+    "name": "Radiodiagnostic devices",
+    "parent": "33124000"
+  },
+  {
+    "code": "33124210",
+    "name": "Radiodiagnostic supplies",
+    "parent": "33124200"
+  },
+  {
+    "code": "33125000",
+    "name": "Urology, exploration devices",
+    "parent": "33120000"
+  },
+  {
+    "code": "33126000",
+    "name": "Stomatology devices",
+    "parent": "33120000"
+  },
+  {
+    "code": "33127000",
+    "name": "Immuno-analysis devices",
+    "parent": "33120000"
+  },
+  {
+    "code": "33128000",
+    "name": "Medical laser other than for surgery",
+    "parent": "33120000"
+  },
+  {
+    "code": "33130000",
+    "name": "Dental and subspecialty instruments and devices",
+    "parent": "33100000"
+  },
+  {
+    "code": "33131000",
+    "name": "Dental hand instrument",
+    "parent": "33130000"
+  },
+  {
+    "code": "33131100",
+    "name": "Dental surgical instrument",
+    "parent": "33131000"
+  },
+  {
+    "code": "33131110",
+    "name": "Dental nippers, brushes, retractors and burnishers",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131111",
+    "name": "Dental nippers",
+    "parent": "33131110"
+  },
+  {
+    "code": "33131112",
+    "name": "Dental operative brushes",
+    "parent": "33131110"
+  },
+  {
+    "code": "33131113",
+    "name": "Dental retractors",
+    "parent": "33131110"
+  },
+  {
+    "code": "33131114",
+    "name": "Dental burnishers",
+    "parent": "33131110"
+  },
+  {
+    "code": "33131120",
+    "name": "Dental cryosurgical, gauges, elevators and excavators",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131121",
+    "name": "Dental cryosurgical units",
+    "parent": "33131120"
+  },
+  {
+    "code": "33131122",
+    "name": "Dental depth gauges",
+    "parent": "33131120"
+  },
+  {
+    "code": "33131123",
+    "name": "Dental elevators",
+    "parent": "33131120"
+  },
+  {
+    "code": "33131124",
+    "name": "Dental excavators",
+    "parent": "33131120"
+  },
+  {
+    "code": "33131130",
+    "name": "Dental fingers protectors and forceps",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131131",
+    "name": "Dental fingers protectors",
+    "parent": "33131130"
+  },
+  {
+    "code": "33131132",
+    "name": "Dental forceps",
+    "parent": "33131130"
+  },
+  {
+    "code": "33131140",
+    "name": "Dental mirrors and reamers",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131141",
+    "name": "Dental mirrors",
+    "parent": "33131140"
+  },
+  {
+    "code": "33131142",
+    "name": "Dental reamers",
+    "parent": "33131140"
+  },
+  {
+    "code": "33131150",
+    "name": "Dental root tip picks, scalers and scale",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131151",
+    "name": "Dental root tip picks",
+    "parent": "33131150"
+  },
+  {
+    "code": "33131152",
+    "name": "Dental scalers",
+    "parent": "33131150"
+  },
+  {
+    "code": "33131153",
+    "name": "Dental scale",
+    "parent": "33131150"
+  },
+  {
+    "code": "33131160",
+    "name": "Dental scissors and knives",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131161",
+    "name": "Dental scissors",
+    "parent": "33131160"
+  },
+  {
+    "code": "33131162",
+    "name": "Dental knives",
+    "parent": "33131160"
+  },
+  {
+    "code": "33131170",
+    "name": "Dental spatulas, tweezers and wax carvers",
+    "parent": "33131100"
+  },
+  {
+    "code": "33131171",
+    "name": "Dental spatulas",
+    "parent": "33131170"
+  },
+  {
+    "code": "33131172",
+    "name": "Dental tweezers",
+    "parent": "33131170"
+  },
+  {
+    "code": "33131173",
+    "name": "Dental wax carvers",
+    "parent": "33131170"
+  },
+  {
+    "code": "33131200",
+    "name": "Dental suture needle",
+    "parent": "33131000"
+  },
+  {
+    "code": "33131300",
+    "name": "Dental disposable instrument",
+    "parent": "33131000"
+  },
+  {
+    "code": "33131400",
+    "name": "Dental probe",
+    "parent": "33131000"
+  },
+  {
+    "code": "33131500",
+    "name": "Dental extraction instrument",
+    "parent": "33131000"
+  },
+  {
+    "code": "33131510",
+    "name": "Dental drills",
+    "parent": "33131500"
+  },
+  {
+    "code": "33131600",
+    "name": "Dental filling instrument",
+    "parent": "33131000"
+  },
+  {
+    "code": "33132000",
+    "name": "Dental implant",
+    "parent": "33130000"
+  },
+  {
+    "code": "33133000",
+    "name": "Dental impression accessories",
+    "parent": "33130000"
+  },
+  {
+    "code": "33134000",
+    "name": "Endodontics accessories",
+    "parent": "33130000"
+  },
+  {
+    "code": "33135000",
+    "name": "Orthodontic devices",
+    "parent": "33130000"
+  },
+  {
+    "code": "33136000",
+    "name": "Rotary and abrasive instrument",
+    "parent": "33130000"
+  },
+  {
+    "code": "33137000",
+    "name": "Dental prophylaxis accessories",
+    "parent": "33130000"
+  },
+  {
+    "code": "33138000",
+    "name": "Prosthodontic and relining products",
+    "parent": "33130000"
+  },
+  {
+    "code": "33138100",
+    "name": "Dentures",
+    "parent": "33138000"
+  },
+  {
+    "code": "33140000",
+    "name": "Medical consumables",
+    "parent": "33100000"
+  },
+  {
+    "code": "33141000",
+    "name": "Disposable non-chemical medical consumables and haematological consumables",
+    "parent": "33140000"
+  },
+  {
+    "code": "33141100",
+    "name": "Dressings; clip, suture, ligature supplies",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141110",
+    "name": "Dressings",
+    "parent": "33141100"
+  },
+  {
+    "code": "33141111",
+    "name": "Adhesive dressings",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141112",
+    "name": "Plasters",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141113",
+    "name": "Bandages",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141114",
+    "name": "Medical gauze",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141115",
+    "name": "Medical wadding",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141116",
+    "name": "Dressing packs",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141117",
+    "name": "Cotton wool",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141118",
+    "name": "Wipes",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141119",
+    "name": "Compresses",
+    "parent": "33141110"
+  },
+  {
+    "code": "33141120",
+    "name": "Clip, suture, ligature supplies",
+    "parent": "33141100"
+  },
+  {
+    "code": "33141121",
+    "name": "Surgical sutures",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141122",
+    "name": "Surgical staples",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141123",
+    "name": "Sharps containers",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141124",
+    "name": "Sharps pads",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141125",
+    "name": "Material for surgical sutures",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141126",
+    "name": "Ligatures",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141127",
+    "name": "Absorbable haemostatics",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141128",
+    "name": "Needles for sutures",
+    "parent": "33141120"
+  },
+  {
+    "code": "33141200",
+    "name": "Catheters",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141210",
+    "name": "Balloon catheters",
+    "parent": "33141200"
+  },
+  {
+    "code": "33141220",
+    "name": "Cannulae",
+    "parent": "33141200"
+  },
+  {
+    "code": "33141230",
+    "name": "Dilator",
+    "parent": "33141200"
+  },
+  {
+    "code": "33141240",
+    "name": "Catheter accessories",
+    "parent": "33141200"
+  },
+  {
+    "code": "33141300",
+    "name": "Venepuncture, blood sampling devices",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141310",
+    "name": "Syringes",
+    "parent": "33141300"
+  },
+  {
+    "code": "33141320",
+    "name": "Medical needles",
+    "parent": "33141300"
+  },
+  {
+    "code": "33141321",
+    "name": "Anesthesia needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141322",
+    "name": "Arterial needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141323",
+    "name": "Biopsy needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141324",
+    "name": "Dialysis needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141325",
+    "name": "Fistula needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141326",
+    "name": "Radiology procedural needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141327",
+    "name": "Vented needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141328",
+    "name": "Epidural needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141329",
+    "name": "Amniocentesia needles",
+    "parent": "33141320"
+  },
+  {
+    "code": "33141400",
+    "name": "Wire-cutter and bistoury; surgical gloves",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141410",
+    "name": "Wire-cutter and bistoury",
+    "parent": "33141400"
+  },
+  {
+    "code": "33141411",
+    "name": "Scalpels and blades",
+    "parent": "33141410"
+  },
+  {
+    "code": "33141420",
+    "name": "Surgical gloves",
+    "parent": "33141400"
+  },
+  {
+    "code": "33141500",
+    "name": "Haematological consumables",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141510",
+    "name": "Blood products",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141520",
+    "name": "Plasma extracts",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141530",
+    "name": "Blood coagulants",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141540",
+    "name": "Albumin",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141550",
+    "name": "Heparin",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141560",
+    "name": "Human organs",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141570",
+    "name": "Human blood",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141580",
+    "name": "Animal blood",
+    "parent": "33141500"
+  },
+  {
+    "code": "33141600",
+    "name": "Collector and collection bags, drainage and kits",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141610",
+    "name": "Collection bag",
+    "parent": "33141600"
+  },
+  {
+    "code": "33141613",
+    "name": "Blood bags",
+    "parent": "33141610"
+  },
+  {
+    "code": "33141614",
+    "name": "Plasma bags",
+    "parent": "33141610"
+  },
+  {
+    "code": "33141615",
+    "name": "Bags for urine",
+    "parent": "33141610"
+  },
+  {
+    "code": "33141620",
+    "name": "Medical kits",
+    "parent": "33141600"
+  },
+  {
+    "code": "33141621",
+    "name": "Incontinence kit",
+    "parent": "33141620"
+  },
+  {
+    "code": "33141622",
+    "name": "AIDS-prevention kits",
+    "parent": "33141620"
+  },
+  {
+    "code": "33141623",
+    "name": "First-aid boxes",
+    "parent": "33141620"
+  },
+  {
+    "code": "33141624",
+    "name": "Administration sets",
+    "parent": "33141620"
+  },
+  {
+    "code": "33141625",
+    "name": "Diagnostic kits",
+    "parent": "33141620"
+  },
+  {
+    "code": "33141626",
+    "name": "Dosage kits",
+    "parent": "33141620"
+  },
+  {
+    "code": "33141630",
+    "name": "Blood plasma filters",
+    "parent": "33141600"
+  },
+  {
+    "code": "33141640",
+    "name": "Drain",
+    "parent": "33141600"
+  },
+  {
+    "code": "33141641",
+    "name": "Probes",
+    "parent": "33141640"
+  },
+  {
+    "code": "33141642",
+    "name": "Drain accessories",
+    "parent": "33141640"
+  },
+  {
+    "code": "33141700",
+    "name": "Orthopaedic supplies",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141710",
+    "name": "Crutches",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141720",
+    "name": "Walking aids",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141730",
+    "name": "Surgical collars",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141740",
+    "name": "Orthopaedic footwear",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141750",
+    "name": "Artificial joints",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141760",
+    "name": "Splints",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141770",
+    "name": "Fracture appliances, pins and plates",
+    "parent": "33141700"
+  },
+  {
+    "code": "33141800",
+    "name": "Dental consumables",
+    "parent": "33141000"
+  },
+  {
+    "code": "33141810",
+    "name": "Dental filling materials",
+    "parent": "33141800"
+  },
+  {
+    "code": "33141820",
+    "name": "Teeth",
+    "parent": "33141800"
+  },
+  {
+    "code": "33141821",
+    "name": "Porcelain teeth",
+    "parent": "33141820"
+  },
+  {
+    "code": "33141822",
+    "name": "Acrylic teeth",
+    "parent": "33141820"
+  },
+  {
+    "code": "33141830",
+    "name": "Cement base",
+    "parent": "33141800"
+  },
+  {
+    "code": "33141840",
+    "name": "Dental haemostatic",
+    "parent": "33141800"
+  },
+  {
+    "code": "33141850",
+    "name": "Dental hygiene products",
+    "parent": "33141800"
+  },
+  {
+    "code": "33141900",
+    "name": "Blood lancets",
+    "parent": "33141000"
+  },
+  {
+    "code": "33150000",
+    "name": "Radiotherapy, mechanotherapy, electrotherapy and physical therapy devices",
+    "parent": "33100000"
+  },
+  {
+    "code": "33151000",
+    "name": "Radiotherapy devices and supplies",
+    "parent": "33150000"
+  },
+  {
+    "code": "33151100",
+    "name": "Gamma therapy devices",
+    "parent": "33151000"
+  },
+  {
+    "code": "33151200",
+    "name": "X-ray therapy devices",
+    "parent": "33151000"
+  },
+  {
+    "code": "33151300",
+    "name": "Spectrographs",
+    "parent": "33151000"
+  },
+  {
+    "code": "33151400",
+    "name": "Radiotherapy supplies",
+    "parent": "33151000"
+  },
+  {
+    "code": "33152000",
+    "name": "Incubators",
+    "parent": "33150000"
+  },
+  {
+    "code": "33153000",
+    "name": "Lithotripter",
+    "parent": "33150000"
+  },
+  {
+    "code": "33154000",
+    "name": "Mechanotherapy devices",
+    "parent": "33150000"
+  },
+  {
+    "code": "33155000",
+    "name": "Physical therapy devices",
+    "parent": "33150000"
+  },
+  {
+    "code": "33156000",
+    "name": "Psychology testing devices",
+    "parent": "33150000"
+  },
+  {
+    "code": "33157000",
+    "name": "Gas-therapy and respiratory devices",
+    "parent": "33150000"
+  },
+  {
+    "code": "33157100",
+    "name": "Medical gas masks",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157110",
+    "name": "Oxygen mask",
+    "parent": "33157100"
+  },
+  {
+    "code": "33157200",
+    "name": "Oxygen kits",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157300",
+    "name": "Oxygen tents",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157400",
+    "name": "Medical breathing devices",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157500",
+    "name": "Hyperbaric chambers",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157700",
+    "name": "Blow bottle",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157800",
+    "name": "Oxygen administration unit",
+    "parent": "33157000"
+  },
+  {
+    "code": "33157810",
+    "name": "Oxygen therapy unit",
+    "parent": "33157800"
+  },
+  {
+    "code": "33158000",
+    "name": "Electrical, electromagnetic and mechanical treatment",
+    "parent": "33150000"
+  },
+  {
+    "code": "33158100",
+    "name": "Electromagnetic unit",
+    "parent": "33158000"
+  },
+  {
+    "code": "33158200",
+    "name": "Electrotherapy devices",
+    "parent": "33158000"
+  },
+  {
+    "code": "33158210",
+    "name": "Stimulator",
+    "parent": "33158200"
+  },
+  {
+    "code": "33158300",
+    "name": "Ultraviolet medical devices",
+    "parent": "33158000"
+  },
+  {
+    "code": "33158400",
+    "name": "Mechanical therapy unit",
+    "parent": "33158000"
+  },
+  {
+    "code": "33158500",
+    "name": "Infrared medical devices",
+    "parent": "33158000"
+  },
+  {
+    "code": "33159000",
+    "name": "Clinical chemistry system",
+    "parent": "33150000"
+  },
+  {
+    "code": "33160000",
+    "name": "Operating techniques",
+    "parent": "33100000"
+  },
+  {
+    "code": "33161000",
+    "name": "Electrosurgical unit",
+    "parent": "33160000"
+  },
+  {
+    "code": "33162000",
+    "name": "Operating theatre devices and instruments",
+    "parent": "33160000"
+  },
+  {
+    "code": "33162100",
+    "name": "Operating-theatre devices",
+    "parent": "33162000"
+  },
+  {
+    "code": "33162200",
+    "name": "Operating-theatre instruments",
+    "parent": "33162000"
+  },
+  {
+    "code": "33163000",
+    "name": "Tent for medical use",
+    "parent": "33160000"
+  },
+  {
+    "code": "33164000",
+    "name": "Coelioscopy devices",
+    "parent": "33160000"
+  },
+  {
+    "code": "33164100",
+    "name": "Colposcope",
+    "parent": "33164000"
+  },
+  {
+    "code": "33165000",
+    "name": "Cryosurgical and cryotherapy devices",
+    "parent": "33160000"
+  },
+  {
+    "code": "33166000",
+    "name": "Dermatological devices",
+    "parent": "33160000"
+  },
+  {
+    "code": "33167000",
+    "name": "Surgical lights",
+    "parent": "33160000"
+  },
+  {
+    "code": "33168000",
+    "name": "Endoscopy, endosurgery devices",
+    "parent": "33160000"
+  },
+  {
+    "code": "33168100",
+    "name": "Endoscopes",
+    "parent": "33168000"
+  },
+  {
+    "code": "33169000",
+    "name": "Surgical instruments",
+    "parent": "33160000"
+  },
+  {
+    "code": "33169100",
+    "name": "Surgical laser",
+    "parent": "33169000"
+  },
+  {
+    "code": "33169200",
+    "name": "Surgical baskets",
+    "parent": "33169000"
+  },
+  {
+    "code": "33169300",
+    "name": "Surgical trays",
+    "parent": "33169000"
+  },
+  {
+    "code": "33169400",
+    "name": "Surgical containers",
+    "parent": "33169000"
+  },
+  {
+    "code": "33169500",
+    "name": "Surgical tracking and tracing systems",
+    "parent": "33169000"
+  },
+  {
+    "code": "33170000",
+    "name": "Anaesthesia and resuscitation",
+    "parent": "33100000"
+  },
+  {
+    "code": "33171000",
+    "name": "Instruments for anaesthesia and resuscitation",
+    "parent": "33170000"
+  },
+  {
+    "code": "33171100",
+    "name": "Instruments for anaesthesia",
+    "parent": "33171000"
+  },
+  {
+    "code": "33171110",
+    "name": "Anaesthesia mask",
+    "parent": "33171100"
+  },
+  {
+    "code": "33171200",
+    "name": "Instruments for resuscitation",
+    "parent": "33171000"
+  },
+  {
+    "code": "33171210",
+    "name": "Resuscitation mask",
+    "parent": "33171200"
+  },
+  {
+    "code": "33171300",
+    "name": "Epidural kits or packs",
+    "parent": "33171000"
+  },
+  {
+    "code": "33172000",
+    "name": "Anaesthesia and resuscitation devices",
+    "parent": "33170000"
+  },
+  {
+    "code": "33172100",
+    "name": "Anaesthesia devices",
+    "parent": "33172000"
+  },
+  {
+    "code": "33172200",
+    "name": "Resuscitation devices",
+    "parent": "33172000"
+  },
+  {
+    "code": "33180000",
+    "name": "Functional support",
+    "parent": "33100000"
+  },
+  {
+    "code": "33181000",
+    "name": "Renal support devices",
+    "parent": "33180000"
+  },
+  {
+    "code": "33181100",
+    "name": "Haemodialysis devices",
+    "parent": "33181000"
+  },
+  {
+    "code": "33181200",
+    "name": "Dialysis filters",
+    "parent": "33181000"
+  },
+  {
+    "code": "33181300",
+    "name": "Haemodialysis individual monitor",
+    "parent": "33181000"
+  },
+  {
+    "code": "33181400",
+    "name": "Haemodialysis multiposition",
+    "parent": "33181000"
+  },
+  {
+    "code": "33181500",
+    "name": "Renal consumables",
+    "parent": "33181000"
+  },
+  {
+    "code": "33181510",
+    "name": "Renal fluid",
+    "parent": "33181500"
+  },
+  {
+    "code": "33181520",
+    "name": "Renal dialysis consumables",
+    "parent": "33181500"
+  },
+  {
+    "code": "33182000",
+    "name": "Cardiac support devices",
+    "parent": "33180000"
+  },
+  {
+    "code": "33182100",
+    "name": "Defibrillator",
+    "parent": "33182000"
+  },
+  {
+    "code": "33182200",
+    "name": "Cardiac stimulation devices",
+    "parent": "33182000"
+  },
+  {
+    "code": "33182210",
+    "name": "Pacemaker",
+    "parent": "33182200"
+  },
+  {
+    "code": "33182220",
+    "name": "Cardiac valve",
+    "parent": "33182200"
+  },
+  {
+    "code": "33182230",
+    "name": "Ventricle",
+    "parent": "33182200"
+  },
+  {
+    "code": "33182240",
+    "name": "Parts and accessories for pacemakers",
+    "parent": "33182200"
+  },
+  {
+    "code": "33182241",
+    "name": "Batteries for pacemakers",
+    "parent": "33182240"
+  },
+  {
+    "code": "33182300",
+    "name": "Cardiac surgery devices",
+    "parent": "33182000"
+  },
+  {
+    "code": "33182400",
+    "name": "Cardiac X-ray system",
+    "parent": "33182000"
+  },
+  {
+    "code": "33183000",
+    "name": "Orthopaedic support devices",
+    "parent": "33180000"
+  },
+  {
+    "code": "33183100",
+    "name": "Orthopaedic implants",
+    "parent": "33183000"
+  },
+  {
+    "code": "33183200",
+    "name": "Orthopaedic prostheses",
+    "parent": "33183000"
+  },
+  {
+    "code": "33183300",
+    "name": "Osteosynthesis devices",
+    "parent": "33183000"
+  },
+  {
+    "code": "33184000",
+    "name": "Artificial parts of the body",
+    "parent": "33180000"
+  },
+  {
+    "code": "33184100",
+    "name": "Surgical implants",
+    "parent": "33184000"
+  },
+  {
+    "code": "33184200",
+    "name": "Vascular prostheses",
+    "parent": "33184000"
+  },
+  {
+    "code": "33184300",
+    "name": "Artificial parts of the heart",
+    "parent": "33184000"
+  },
+  {
+    "code": "33184400",
+    "name": "Breast prostheses",
+    "parent": "33184000"
+  },
+  {
+    "code": "33184410",
+    "name": "Internal breast prostheses",
+    "parent": "33184400"
+  },
+  {
+    "code": "33184420",
+    "name": "External breast prostheses",
+    "parent": "33184400"
+  },
+  {
+    "code": "33184500",
+    "name": "Coronary endoprostheses",
+    "parent": "33184000"
+  },
+  {
+    "code": "33184600",
+    "name": "False eyes",
+    "parent": "33184000"
+  },
+  {
+    "code": "33185000",
+    "name": "Hearing aids",
+    "parent": "33180000"
+  },
+  {
+    "code": "33185100",
+    "name": "Parts and accessories for hearing aids",
+    "parent": "33185000"
+  },
+  {
+    "code": "33185200",
+    "name": "Cochlear implant",
+    "parent": "33185000"
+  },
+  {
+    "code": "33185300",
+    "name": "Otolaryngology implant",
+    "parent": "33185000"
+  },
+  {
+    "code": "33185400",
+    "name": "Larynx artificial",
+    "parent": "33185000"
+  },
+  {
+    "code": "33186000",
+    "name": "Extracorporeal circulatory unit",
+    "parent": "33180000"
+  },
+  {
+    "code": "33186100",
+    "name": "Oxygenator",
+    "parent": "33186000"
+  },
+  {
+    "code": "33186200",
+    "name": "Blood and fluid warming",
+    "parent": "33186000"
+  },
+  {
+    "code": "33190000",
+    "name": "Miscellaneous medical devices and products",
+    "parent": "33100000"
+  },
+  {
+    "code": "33191000",
+    "name": "Sterilisation, disinfection and hygiene devices",
+    "parent": "33190000"
+  },
+  {
+    "code": "33191100",
+    "name": "Steriliser",
+    "parent": "33191000"
+  },
+  {
+    "code": "33191110",
+    "name": "Autoclaves",
+    "parent": "33191100"
+  },
+  {
+    "code": "33192000",
+    "name": "Medical furniture",
+    "parent": "33190000"
+  },
+  {
+    "code": "33192100",
+    "name": "Beds for medical use",
+    "parent": "33192000"
+  },
+  {
+    "code": "33192110",
+    "name": "Orthopaedic beds",
+    "parent": "33192100"
+  },
+  {
+    "code": "33192120",
+    "name": "Hospital beds",
+    "parent": "33192100"
+  },
+  {
+    "code": "33192130",
+    "name": "Motorised beds",
+    "parent": "33192100"
+  },
+  {
+    "code": "33192140",
+    "name": "Psychiatric couches",
+    "parent": "33192100"
+  },
+  {
+    "code": "33192150",
+    "name": "Therapy beds",
+    "parent": "33192100"
+  },
+  {
+    "code": "33192160",
+    "name": "Stretchers",
+    "parent": "33192100"
+  },
+  {
+    "code": "33192200",
+    "name": "Medical tables",
+    "parent": "33192000"
+  },
+  {
+    "code": "33192210",
+    "name": "Examination tables",
+    "parent": "33192200"
+  },
+  {
+    "code": "33192230",
+    "name": "Operating tables",
+    "parent": "33192200"
+  },
+  {
+    "code": "33192300",
+    "name": "Medical furniture except beds and tables",
+    "parent": "33192000"
+  },
+  {
+    "code": "33192310",
+    "name": "Traction or suspension devices for medical beds",
+    "parent": "33192300"
+  },
+  {
+    "code": "33192320",
+    "name": "Urine-bottle holders",
+    "parent": "33192300"
+  },
+  {
+    "code": "33192330",
+    "name": "Transfusion pods",
+    "parent": "33192300"
+  },
+  {
+    "code": "33192340",
+    "name": "Operating theatre furniture except tables",
+    "parent": "33192300"
+  },
+  {
+    "code": "33192350",
+    "name": "Medical cultivation cabinet",
+    "parent": "33192300"
+  },
+  {
+    "code": "33192400",
+    "name": "Dental workstations",
+    "parent": "33192000"
+  },
+  {
+    "code": "33192410",
+    "name": "Dental chairs",
+    "parent": "33192400"
+  },
+  {
+    "code": "33192500",
+    "name": "Test tubes",
+    "parent": "33192000"
+  },
+  {
+    "code": "33192600",
+    "name": "Lifting equipment for health care sector",
+    "parent": "33192000"
+  },
+  {
+    "code": "33193000",
+    "name": "Invalid carriages, wheelchairs and associated devices",
+    "parent": "33190000"
+  },
+  {
+    "code": "33193100",
+    "name": "Invalid carriages and wheelchairs",
+    "parent": "33193000"
+  },
+  {
+    "code": "33193110",
+    "name": "Invalid carriages",
+    "parent": "33193100"
+  },
+  {
+    "code": "33193120",
+    "name": "Wheelchairs",
+    "parent": "33193100"
+  },
+  {
+    "code": "33193121",
+    "name": "Motorised wheelchairs",
+    "parent": "33193120"
+  },
+  {
+    "code": "33193200",
+    "name": "Parts and accessories for invalid carriages and wheelchairs",
+    "parent": "33193000"
+  },
+  {
+    "code": "33193210",
+    "name": "Parts and accessories for invalid carriages",
+    "parent": "33193200"
+  },
+  {
+    "code": "33193211",
+    "name": "Motors for invalid carriages",
+    "parent": "33193210"
+  },
+  {
+    "code": "33193212",
+    "name": "Steering devices for invalid carriages",
+    "parent": "33193210"
+  },
+  {
+    "code": "33193213",
+    "name": "Control devices for invalid carriages",
+    "parent": "33193210"
+  },
+  {
+    "code": "33193214",
+    "name": "Chassis for invalid carriages",
+    "parent": "33193210"
+  },
+  {
+    "code": "33193220",
+    "name": "Parts and accessories for wheelchairs",
+    "parent": "33193200"
+  },
+  {
+    "code": "33193221",
+    "name": "Wheelchair cushions",
+    "parent": "33193220"
+  },
+  {
+    "code": "33193222",
+    "name": "Wheelchair frames",
+    "parent": "33193220"
+  },
+  {
+    "code": "33193223",
+    "name": "Wheelchair seats",
+    "parent": "33193220"
+  },
+  {
+    "code": "33193224",
+    "name": "Wheelchair wheels",
+    "parent": "33193220"
+  },
+  {
+    "code": "33193225",
+    "name": "Wheelchair tyres",
+    "parent": "33193220"
+  },
+  {
+    "code": "33194000",
+    "name": "Devices and instruments for transfusion and infusion",
+    "parent": "33190000"
+  },
+  {
+    "code": "33194100",
+    "name": "Devices and instruments for infusion",
+    "parent": "33194000"
+  },
+  {
+    "code": "33194110",
+    "name": "Infusion pumps",
+    "parent": "33194100"
+  },
+  {
+    "code": "33194120",
+    "name": "Infusion supplies",
+    "parent": "33194100"
+  },
+  {
+    "code": "33194200",
+    "name": "Devices and instruments for transfusion",
+    "parent": "33194000"
+  },
+  {
+    "code": "33194210",
+    "name": "Blood-transfusion devices",
+    "parent": "33194200"
+  },
+  {
+    "code": "33194220",
+    "name": "Blood-transfusion supplies",
+    "parent": "33194200"
+  },
+  {
+    "code": "33195000",
+    "name": "Patient-monitoring system",
+    "parent": "33190000"
+  },
+  {
+    "code": "33195100",
+    "name": "Monitors",
+    "parent": "33195000"
+  },
+  {
+    "code": "33195110",
+    "name": "Respiratory monitors",
+    "parent": "33195100"
+  },
+  {
+    "code": "33195200",
+    "name": "Central monitoring station",
+    "parent": "33195000"
+  },
+  {
+    "code": "33196000",
+    "name": "Medical aids",
+    "parent": "33190000"
+  },
+  {
+    "code": "33196100",
+    "name": "Devices for the elderly",
+    "parent": "33196000"
+  },
+  {
+    "code": "33196200",
+    "name": "Devices for the disabled",
+    "parent": "33196000"
+  },
+  {
+    "code": "33197000",
+    "name": "Medical computer equipment",
+    "parent": "33190000"
+  },
+  {
+    "code": "33198000",
+    "name": "Hospital paper articles",
+    "parent": "33190000"
+  },
+  {
+    "code": "33198100",
+    "name": "Paper compresses",
+    "parent": "33198000"
+  },
+  {
+    "code": "33198200",
+    "name": "Paper sterilisation pouches or wraps",
+    "parent": "33198000"
+  },
+  {
+    "code": "33199000",
+    "name": "Medical clothing",
+    "parent": "33190000"
+  },
+  {
+    "code": "33600000",
+    "name": "Pharmaceutical products",
+    "parent": "33000000"
+  },
+  {
+    "code": "33610000",
+    "name": "Medicinal products for the alimentary tract and metabolism",
+    "parent": "33600000"
+  },
+  {
+    "code": "33611000",
+    "name": "Medicinal products for acid related disorders",
+    "parent": "33610000"
+  },
+  {
+    "code": "33612000",
+    "name": "Medicinal products for functional gastrointestinal disorders",
+    "parent": "33610000"
+  },
+  {
+    "code": "33613000",
+    "name": "Laxatives",
+    "parent": "33610000"
+  },
+  {
+    "code": "33614000",
+    "name": "Antidiarrhoeals, intestinal anti-inflammatory/anti-infective agents",
+    "parent": "33610000"
+  },
+  {
+    "code": "33615000",
+    "name": "Medicinal products used in diabetes",
+    "parent": "33610000"
+  },
+  {
+    "code": "33615100",
+    "name": "Insulin",
+    "parent": "33615000"
+  },
+  {
+    "code": "33616000",
+    "name": "Vitamins",
+    "parent": "33610000"
+  },
+  {
+    "code": "33616100",
+    "name": "Provitamins",
+    "parent": "33616000"
+  },
+  {
+    "code": "33617000",
+    "name": "Mineral supplements",
+    "parent": "33610000"
+  },
+  {
+    "code": "33620000",
+    "name": "Medicinal products for the blood, blood-forming organs and the cardiovascular system",
+    "parent": "33600000"
+  },
+  {
+    "code": "33621000",
+    "name": "Medicinal products for the blood and blood-forming organs",
+    "parent": "33620000"
+  },
+  {
+    "code": "33621100",
+    "name": "Antithrombotic agents",
+    "parent": "33621000"
+  },
+  {
+    "code": "33621200",
+    "name": "Antihaemorrhagics",
+    "parent": "33621000"
+  },
+  {
+    "code": "33621300",
+    "name": "Antianaemic preparations",
+    "parent": "33621000"
+  },
+  {
+    "code": "33621400",
+    "name": "Blood substitutes and perfusion solutions",
+    "parent": "33621000"
+  },
+  {
+    "code": "33622000",
+    "name": "Medicinal products for the cardiovascular system",
+    "parent": "33620000"
+  },
+  {
+    "code": "33622100",
+    "name": "Cardiac therapy medicinal products",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622200",
+    "name": "Antihypertensives",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622300",
+    "name": "Diuretics",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622400",
+    "name": "Vasoprotectives",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622500",
+    "name": "Antihaemorrhoidals for topical use",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622600",
+    "name": "Beta-blocking agents",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622700",
+    "name": "Calcium channel blockers",
+    "parent": "33622000"
+  },
+  {
+    "code": "33622800",
+    "name": "Agents acting on the renin-angiotensin system",
+    "parent": "33622000"
+  },
+  {
+    "code": "33630000",
+    "name": "Medicinal products for dermatology and the musculo-skeletal system",
+    "parent": "33600000"
+  },
+  {
+    "code": "33631000",
+    "name": "Medicinal products for dermatology",
+    "parent": "33630000"
+  },
+  {
+    "code": "33631100",
+    "name": "Antifungals for dermatological use",
+    "parent": "33631000"
+  },
+  {
+    "code": "33631110",
+    "name": "Salicylic acids",
+    "parent": "33631100"
+  },
+  {
+    "code": "33631200",
+    "name": "Emollients and protectives",
+    "parent": "33631000"
+  },
+  {
+    "code": "33631300",
+    "name": "Antipsoriatics",
+    "parent": "33631000"
+  },
+  {
+    "code": "33631400",
+    "name": "Antibiotics and chemotherapeutics for dermatological use",
+    "parent": "33631000"
+  },
+  {
+    "code": "33631500",
+    "name": "Corticosteroids for dermatological use and dermatological preparations",
+    "parent": "33631000"
+  },
+  {
+    "code": "33631600",
+    "name": "Antiseptics and disinfectants",
+    "parent": "33631000"
+  },
+  {
+    "code": "33631700",
+    "name": "Anti-acne preparations",
+    "parent": "33631000"
+  },
+  {
+    "code": "33632000",
+    "name": "Medicinal products for the musculo-skeletal system",
+    "parent": "33630000"
+  },
+  {
+    "code": "33632100",
+    "name": "Anti-inflammatory and anti-rheumatic products",
+    "parent": "33632000"
+  },
+  {
+    "code": "33632200",
+    "name": "Muscle relaxants",
+    "parent": "33632000"
+  },
+  {
+    "code": "33632300",
+    "name": "Antigout preparations",
+    "parent": "33632000"
+  },
+  {
+    "code": "33640000",
+    "name": "Medicinal products for the genitourinary system and hormones",
+    "parent": "33600000"
+  },
+  {
+    "code": "33641000",
+    "name": "Medicinal products for the genitourinary system and sex hormones",
+    "parent": "33640000"
+  },
+  {
+    "code": "33641100",
+    "name": "Gynaecological anti-infectives and antiseptics",
+    "parent": "33641000"
+  },
+  {
+    "code": "33641200",
+    "name": "Other gynaecologicals",
+    "parent": "33641000"
+  },
+  {
+    "code": "33641300",
+    "name": "Sex hormones and modulators of the genital system",
+    "parent": "33641000"
+  },
+  {
+    "code": "33641400",
+    "name": "Contraceptives",
+    "parent": "33641000"
+  },
+  {
+    "code": "33641410",
+    "name": "Oral contraceptives",
+    "parent": "33641400"
+  },
+  {
+    "code": "33641420",
+    "name": "Chemical contraceptives",
+    "parent": "33641400"
+  },
+  {
+    "code": "33642000",
+    "name": "Systemic hormonal preparations, excl. sex hormones",
+    "parent": "33640000"
+  },
+  {
+    "code": "33642100",
+    "name": "Pituitary, hypothalamic hormones and analogues",
+    "parent": "33642000"
+  },
+  {
+    "code": "33642200",
+    "name": "Corticosteroids for systemic use",
+    "parent": "33642000"
+  },
+  {
+    "code": "33642300",
+    "name": "Thyroid therapy medicinal products",
+    "parent": "33642000"
+  },
+  {
+    "code": "33650000",
+    "name": "General anti-infectives for systemic use, vaccines, antineoplastic and immunodulating agents",
+    "parent": "33600000"
+  },
+  {
+    "code": "33651000",
+    "name": "General anti-infectives for systemic use and vaccines",
+    "parent": "33650000"
+  },
+  {
+    "code": "33651100",
+    "name": "Antibacterials for systemic use",
+    "parent": "33651000"
+  },
+  {
+    "code": "33651200",
+    "name": "Antimycotics for systemic use",
+    "parent": "33651000"
+  },
+  {
+    "code": "33651300",
+    "name": "Antimycobacterials",
+    "parent": "33651000"
+  },
+  {
+    "code": "33651400",
+    "name": "Antivirals for systemic use",
+    "parent": "33651000"
+  },
+  {
+    "code": "33651500",
+    "name": "Immune sera and immunoglobulins",
+    "parent": "33651000"
+  },
+  {
+    "code": "33651510",
+    "name": "Antisera",
+    "parent": "33651500"
+  },
+  {
+    "code": "33651520",
+    "name": "Immunoglobulins",
+    "parent": "33651500"
+  },
+  {
+    "code": "33651600",
+    "name": "Vaccines",
+    "parent": "33651000"
+  },
+  {
+    "code": "33651610",
+    "name": "Diphtheria-pertussis-tetanus vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651620",
+    "name": "Diphtheria-tetanus vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651630",
+    "name": "BCG vaccines (dried)",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651640",
+    "name": "Measles-mumps-rubella vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651650",
+    "name": "Typhus vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651660",
+    "name": "Influenza vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651670",
+    "name": "Polio vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651680",
+    "name": "Hepatitis B vaccines",
+    "parent": "33651600"
+  },
+  {
+    "code": "33651690",
+    "name": "Vaccines for veterinary medicine",
+    "parent": "33651600"
+  },
+  {
+    "code": "33652000",
+    "name": "Antineoplastic and immunomodulating agents",
+    "parent": "33650000"
+  },
+  {
+    "code": "33652100",
+    "name": "Antineoplastic agents",
+    "parent": "33652000"
+  },
+  {
+    "code": "33652200",
+    "name": "Endocrine therapy medicinal products",
+    "parent": "33652000"
+  },
+  {
+    "code": "33652300",
+    "name": "Immunosuppressive agents",
+    "parent": "33652000"
+  },
+  {
+    "code": "33660000",
+    "name": "Medicinal products for the nervous system and sensory organs",
+    "parent": "33600000"
+  },
+  {
+    "code": "33661000",
+    "name": "Medicinal products for the nervous system",
+    "parent": "33660000"
+  },
+  {
+    "code": "33661100",
+    "name": "Anaesthetics",
+    "parent": "33661000"
+  },
+  {
+    "code": "33661200",
+    "name": "Analgesics",
+    "parent": "33661000"
+  },
+  {
+    "code": "33661300",
+    "name": "Antiepileptics",
+    "parent": "33661000"
+  },
+  {
+    "code": "33661400",
+    "name": "Anti-Parkinson medicinal products",
+    "parent": "33661000"
+  },
+  {
+    "code": "33661500",
+    "name": "Psycholeptics",
+    "parent": "33661000"
+  },
+  {
+    "code": "33661600",
+    "name": "Psychoanaleptics",
+    "parent": "33661000"
+  },
+  {
+    "code": "33661700",
+    "name": "Other nervous system medicinal products",
+    "parent": "33661000"
+  },
+  {
+    "code": "33662000",
+    "name": "Medicinal products for sensory organs",
+    "parent": "33660000"
+  },
+  {
+    "code": "33662100",
+    "name": "Ophthalmologicals",
+    "parent": "33662000"
+  },
+  {
+    "code": "33670000",
+    "name": "Medicinal products for the respiratory system",
+    "parent": "33600000"
+  },
+  {
+    "code": "33673000",
+    "name": "Medicinal products for obstructive airway diseases",
+    "parent": "33670000"
+  },
+  {
+    "code": "33674000",
+    "name": "Cough and cold preparations",
+    "parent": "33670000"
+  },
+  {
+    "code": "33675000",
+    "name": "Antihistamines for systemic use",
+    "parent": "33670000"
+  },
+  {
+    "code": "33680000",
+    "name": "Pharmaceutical articles",
+    "parent": "33600000"
+  },
+  {
+    "code": "33681000",
+    "name": "Teats, nipple shields and similar articles for babies",
+    "parent": "33680000"
+  },
+  {
+    "code": "33682000",
+    "name": "Rubber tiles",
+    "parent": "33680000"
+  },
+  {
+    "code": "33683000",
+    "name": "Rubber cushioning",
+    "parent": "33680000"
+  },
+  {
+    "code": "33690000",
+    "name": "Various medicinal products",
+    "parent": "33600000"
+  },
+  {
+    "code": "33691000",
+    "name": "Antiparasitic products, insecticides and repellents",
+    "parent": "33690000"
+  },
+  {
+    "code": "33691100",
+    "name": "Antiprotozoals",
+    "parent": "33691000"
+  },
+  {
+    "code": "33691200",
+    "name": "Anthelmintics",
+    "parent": "33691000"
+  },
+  {
+    "code": "33691300",
+    "name": "Ectoparasiticides, incl. scabicides, insecticides and repellents",
+    "parent": "33691000"
+  },
+  {
+    "code": "33692000",
+    "name": "Medical solutions",
+    "parent": "33690000"
+  },
+  {
+    "code": "33692100",
+    "name": "Infusion solutions",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692200",
+    "name": "Parenteral nutrition products",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692210",
+    "name": "Parenteral feeding solutions",
+    "parent": "33692200"
+  },
+  {
+    "code": "33692300",
+    "name": "Enteral feeds",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692400",
+    "name": "Perfusion solutions",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692500",
+    "name": "Injectable solutions",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692510",
+    "name": "Intravenous fluids",
+    "parent": "33692500"
+  },
+  {
+    "code": "33692600",
+    "name": "Galenical solutions",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692700",
+    "name": "Glucose solutions",
+    "parent": "33692000"
+  },
+  {
+    "code": "33692800",
+    "name": "Dialysis solutions",
+    "parent": "33692000"
+  },
+  {
+    "code": "33693000",
+    "name": "Other therapeutic products",
+    "parent": "33690000"
+  },
+  {
+    "code": "33693100",
+    "name": "Toxins",
+    "parent": "33693000"
+  },
+  {
+    "code": "33693200",
+    "name": "Nicotine substitutes",
+    "parent": "33693000"
+  },
+  {
+    "code": "33693300",
+    "name": "Addiction treatment",
+    "parent": "33693000"
+  },
+  {
+    "code": "33694000",
+    "name": "Diagnostic agents",
+    "parent": "33690000"
+  },
+  {
+    "code": "33695000",
+    "name": "All other non-therapeutic products",
+    "parent": "33690000"
+  },
+  {
+    "code": "33696000",
+    "name": "Reagents and contrast media",
+    "parent": "33690000"
+  },
+  {
+    "code": "33696100",
+    "name": "Blood-grouping reagents",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696200",
+    "name": "Blood-testing reagents",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696300",
+    "name": "Chemical reagents",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696400",
+    "name": "Isotopic reagents",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696500",
+    "name": "Laboratory reagents",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696600",
+    "name": "Reagents for electrophoresis",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696700",
+    "name": "Urological reagents",
+    "parent": "33696000"
+  },
+  {
+    "code": "33696800",
+    "name": "X-ray contrast media",
+    "parent": "33696000"
+  },
+  {
+    "code": "33697000",
+    "name": "Medical preparations excluding dental consumables",
+    "parent": "33690000"
+  },
+  {
+    "code": "33697100",
+    "name": "Enema preparations",
+    "parent": "33697000"
+  },
+  {
+    "code": "33697110",
+    "name": "Bone reconstruction cements",
+    "parent": "33697100"
+  },
+  {
+    "code": "33698000",
+    "name": "Clinical products",
+    "parent": "33690000"
+  },
+  {
+    "code": "33698100",
+    "name": "Microbiological cultures",
+    "parent": "33698000"
+  },
+  {
+    "code": "33698200",
+    "name": "Glands and their extracts",
+    "parent": "33698000"
+  },
+  {
+    "code": "33698300",
+    "name": "Peptic substances",
+    "parent": "33698000"
+  },
+  {
+    "code": "33700000",
+    "name": "Personal care products",
+    "parent": "33000000"
+  },
+  {
+    "code": "33710000",
+    "name": "Perfumes, toiletries and condoms",
+    "parent": "33700000"
+  },
+  {
+    "code": "33711000",
+    "name": "Perfumes and toiletries",
+    "parent": "33710000"
+  },
+  {
+    "code": "33711100",
+    "name": "Toilet waters",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711110",
+    "name": "Deodorants",
+    "parent": "33711100"
+  },
+  {
+    "code": "33711120",
+    "name": "Antiperspirants",
+    "parent": "33711100"
+  },
+  {
+    "code": "33711130",
+    "name": "Colognes",
+    "parent": "33711100"
+  },
+  {
+    "code": "33711140",
+    "name": "Fragrances",
+    "parent": "33711100"
+  },
+  {
+    "code": "33711150",
+    "name": "Rose water",
+    "parent": "33711100"
+  },
+  {
+    "code": "33711200",
+    "name": "Make-up preparations",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711300",
+    "name": "Manicure or pedicure preparations",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711400",
+    "name": "Beauty products",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711410",
+    "name": "Cotton buds",
+    "parent": "33711400"
+  },
+  {
+    "code": "33711420",
+    "name": "Makeup kits",
+    "parent": "33711400"
+  },
+  {
+    "code": "33711430",
+    "name": "Disposable personal wipes",
+    "parent": "33711400"
+  },
+  {
+    "code": "33711440",
+    "name": "Lip balm",
+    "parent": "33711400"
+  },
+  {
+    "code": "33711450",
+    "name": "Tattoos",
+    "parent": "33711400"
+  },
+  {
+    "code": "33711500",
+    "name": "Skin-care products",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711510",
+    "name": "Sun protection products",
+    "parent": "33711500"
+  },
+  {
+    "code": "33711520",
+    "name": "Bath gels",
+    "parent": "33711500"
+  },
+  {
+    "code": "33711530",
+    "name": "Shower caps",
+    "parent": "33711500"
+  },
+  {
+    "code": "33711540",
+    "name": "Para-pharmaceutical creams or lotions",
+    "parent": "33711500"
+  },
+  {
+    "code": "33711600",
+    "name": "Hair preparations and articles",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711610",
+    "name": "Shampoos",
+    "parent": "33711600"
+  },
+  {
+    "code": "33711620",
+    "name": "Combs",
+    "parent": "33711600"
+  },
+  {
+    "code": "33711630",
+    "name": "Wigs",
+    "parent": "33711600"
+  },
+  {
+    "code": "33711640",
+    "name": "Vanity kits",
+    "parent": "33711600"
+  },
+  {
+    "code": "33711700",
+    "name": "Articles and preparations for oral or dental hygiene",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711710",
+    "name": "Toothbrushes",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711720",
+    "name": "Toothpaste",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711730",
+    "name": "Toothpicks",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711740",
+    "name": "Mouthwash",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711750",
+    "name": "Mouth fresheners",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711760",
+    "name": "Dental floss",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711770",
+    "name": "Infant soother, pacifier and dummy",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711780",
+    "name": "Denture cleaning tablets",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711790",
+    "name": "Dental kits",
+    "parent": "33711700"
+  },
+  {
+    "code": "33711800",
+    "name": "Shaving preparations",
+    "parent": "33711000"
+  },
+  {
+    "code": "33711810",
+    "name": "Shaving creams",
+    "parent": "33711800"
+  },
+  {
+    "code": "33711900",
+    "name": "Soap",
+    "parent": "33711000"
+  },
+  {
+    "code": "33712000",
+    "name": "Condoms",
+    "parent": "33710000"
+  },
+  {
+    "code": "33713000",
+    "name": "Foot care products",
+    "parent": "33710000"
+  },
+  {
+    "code": "33720000",
+    "name": "Razors and manicure or pedicure sets",
+    "parent": "33700000"
+  },
+  {
+    "code": "33721000",
+    "name": "Razors",
+    "parent": "33720000"
+  },
+  {
+    "code": "33721100",
+    "name": "Razor blades",
+    "parent": "33721000"
+  },
+  {
+    "code": "33721200",
+    "name": "Shavers",
+    "parent": "33721000"
+  },
+  {
+    "code": "33722000",
+    "name": "Manicure or pedicure sets",
+    "parent": "33720000"
+  },
+  {
+    "code": "33722100",
+    "name": "Manicure sets",
+    "parent": "33722000"
+  },
+  {
+    "code": "33722110",
+    "name": "Manicure implements",
+    "parent": "33722100"
+  },
+  {
+    "code": "33722200",
+    "name": "Pedicure sets",
+    "parent": "33722000"
+  },
+  {
+    "code": "33722210",
+    "name": "Pedicure implements",
+    "parent": "33722200"
+  },
+  {
+    "code": "33722300",
+    "name": "Barrettes",
+    "parent": "33722000"
+  },
+  {
+    "code": "33730000",
+    "name": "Eye care products and corrective lenses",
+    "parent": "33700000"
+  },
+  {
+    "code": "33731000",
+    "name": "Contact lenses",
+    "parent": "33730000"
+  },
+  {
+    "code": "33731100",
+    "name": "Corrective lenses",
+    "parent": "33731000"
+  },
+  {
+    "code": "33731110",
+    "name": "Intraocular lenses",
+    "parent": "33731100"
+  },
+  {
+    "code": "33731120",
+    "name": "Spectacle lenses",
+    "parent": "33731100"
+  },
+  {
+    "code": "33732000",
+    "name": "Contact lenses lotions",
+    "parent": "33730000"
+  },
+  {
+    "code": "33733000",
+    "name": "Sunglasses",
+    "parent": "33730000"
+  },
+  {
+    "code": "33734000",
+    "name": "Spectacles",
+    "parent": "33730000"
+  },
+  {
+    "code": "33734100",
+    "name": "Frames and mountings for spectacles",
+    "parent": "33734000"
+  },
+  {
+    "code": "33734200",
+    "name": "Glass for spectacles",
+    "parent": "33734000"
+  },
+  {
+    "code": "33735000",
+    "name": "Goggles",
+    "parent": "33730000"
+  },
+  {
+    "code": "33735100",
+    "name": "Protective goggles",
+    "parent": "33735000"
+  },
+  {
+    "code": "33735200",
+    "name": "Frames and mountings for goggles",
+    "parent": "33735000"
+  },
+  {
+    "code": "33740000",
+    "name": "Hand and nails care products",
+    "parent": "33700000"
+  },
+  {
+    "code": "33741000",
+    "name": "Hand care products",
+    "parent": "33740000"
+  },
+  {
+    "code": "33741100",
+    "name": "Hand cleaner",
+    "parent": "33741000"
+  },
+  {
+    "code": "33741200",
+    "name": "Hand or body lotions",
+    "parent": "33741000"
+  },
+  {
+    "code": "33741300",
+    "name": "Hand sanitizer",
+    "parent": "33741000"
+  },
+  {
+    "code": "33742000",
+    "name": "Nail care products",
+    "parent": "33740000"
+  },
+  {
+    "code": "33742100",
+    "name": "Nail clippers",
+    "parent": "33742000"
+  },
+  {
+    "code": "33742200",
+    "name": "Nail polish",
+    "parent": "33742000"
+  },
+  {
+    "code": "33750000",
+    "name": "Baby care products",
+    "parent": "33700000"
+  },
+  {
+    "code": "33751000",
+    "name": "Disposable nappies",
+    "parent": "33750000"
+  },
+  {
+    "code": "33752000",
+    "name": "Nursing pad",
+    "parent": "33750000"
+  },
+  {
+    "code": "33760000",
+    "name": "Toilet paper, handkerchiefs, hand towels and serviettes",
+    "parent": "33700000"
+  },
+  {
+    "code": "33761000",
+    "name": "Toilet paper",
+    "parent": "33760000"
+  },
+  {
+    "code": "33762000",
+    "name": "Paper handkerchiefs",
+    "parent": "33760000"
+  },
+  {
+    "code": "33763000",
+    "name": "Paper hand towels",
+    "parent": "33760000"
+  },
+  {
+    "code": "33764000",
+    "name": "Paper serviettes",
+    "parent": "33760000"
+  },
+  {
+    "code": "33770000",
+    "name": "Paper sanitary",
+    "parent": "33700000"
+  },
+  {
+    "code": "33771000",
+    "name": "Sanitary paper products",
+    "parent": "33770000"
+  },
+  {
+    "code": "33771100",
+    "name": "Sanitary towels or tampons",
+    "parent": "33771000"
+  },
+  {
+    "code": "33771200",
+    "name": "Paper napkin liners",
+    "parent": "33771000"
+  },
+  {
+    "code": "33772000",
+    "name": "Disposable paper products",
+    "parent": "33770000"
+  },
+  {
+    "code": "33790000",
+    "name": "Laboratory, hygienic or pharmaceutical glassware",
+    "parent": "33700000"
+  },
+  {
+    "code": "33791000",
+    "name": "Hygienic glassware",
+    "parent": "33790000"
+  },
+  {
+    "code": "33792000",
+    "name": "Pharmaceutical glassware",
+    "parent": "33790000"
+  },
+  {
+    "code": "33793000",
+    "name": "Laboratory glassware",
+    "parent": "33790000"
+  },
+  {
+    "code": "33900000",
+    "name": "Post-mortem and mortuary equipment and supplies",
+    "parent": "33000000"
+  },
+  {
+    "code": "33910000",
+    "name": "Pathology dissection instruments and supplies",
+    "parent": "33900000"
+  },
+  {
+    "code": "33911000",
+    "name": "Autopsy scissors",
+    "parent": "33910000"
+  },
+  {
+    "code": "33912000",
+    "name": "Autopsy dissection kits",
+    "parent": "33910000"
+  },
+  {
+    "code": "33912100",
+    "name": "Autopsy dissection forceps",
+    "parent": "33912000"
+  },
+  {
+    "code": "33913000",
+    "name": "Autopsy bullet probes",
+    "parent": "33910000"
+  },
+  {
+    "code": "33914000",
+    "name": "Post-mortem thread, needles or incision clips",
+    "parent": "33910000"
+  },
+  {
+    "code": "33914100",
+    "name": "Post-mortem thread",
+    "parent": "33914000"
+  },
+  {
+    "code": "33914200",
+    "name": "Post-mortem needles",
+    "parent": "33914000"
+  },
+  {
+    "code": "33914300",
+    "name": "Post-mortem incision clips",
+    "parent": "33914000"
+  },
+  {
+    "code": "33915000",
+    "name": "Autopsy vein directors",
+    "parent": "33910000"
+  },
+  {
+    "code": "33916000",
+    "name": "Autopsy saw blades or accessories",
+    "parent": "33910000"
+  },
+  {
+    "code": "33916100",
+    "name": "Autopsy saws",
+    "parent": "33916000"
+  },
+  {
+    "code": "33917000",
+    "name": "Dissection boards or pads",
+    "parent": "33910000"
+  },
+  {
+    "code": "33918000",
+    "name": "Cases for post-mortem surgical instruments or accessories",
+    "parent": "33910000"
+  },
+  {
+    "code": "33919000",
+    "name": "Instrument rolls for post-mortem surgical instruments or accessories",
+    "parent": "33910000"
+  },
+  {
+    "code": "33920000",
+    "name": "Autopsy equipment and supplies",
+    "parent": "33900000"
+  },
+  {
+    "code": "33921000",
+    "name": "Bone dust collectors",
+    "parent": "33920000"
+  },
+  {
+    "code": "33922000",
+    "name": "Cadaver transport bags",
+    "parent": "33920000"
+  },
+  {
+    "code": "33923000",
+    "name": "Autopsy head rests, body boards or hanging scales",
+    "parent": "33920000"
+  },
+  {
+    "code": "33923100",
+    "name": "Autopsy head rests",
+    "parent": "33923000"
+  },
+  {
+    "code": "33923200",
+    "name": "Autopsy body boards",
+    "parent": "33923000"
+  },
+  {
+    "code": "33923300",
+    "name": "Autopsy hanging scales",
+    "parent": "33923000"
+  },
+  {
+    "code": "33924000",
+    "name": "Autopsy infectious disease kits",
+    "parent": "33920000"
+  },
+  {
+    "code": "33925000",
+    "name": "Post-mortem identification tags or bracelets",
+    "parent": "33920000"
+  },
+  {
+    "code": "33926000",
+    "name": "Autopsy fluid collection vacuum aspirators or tubing",
+    "parent": "33920000"
+  },
+  {
+    "code": "33927000",
+    "name": "Post-mortem rectal thermometers",
+    "parent": "33920000"
+  },
+  {
+    "code": "33928000",
+    "name": "Post-mortem finger straighteners",
+    "parent": "33920000"
+  },
+  {
+    "code": "33929000",
+    "name": "Cadaver tissue builder kits",
+    "parent": "33920000"
+  },
+  {
+    "code": "33930000",
+    "name": "Autopsy furniture",
+    "parent": "33900000"
+  },
+  {
+    "code": "33931000",
+    "name": "Autopsy grossing workstations or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33932000",
+    "name": "Autopsy sinks or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33933000",
+    "name": "Autopsy tables or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33933100",
+    "name": "Autopsy tables",
+    "parent": "33933000"
+  },
+  {
+    "code": "33934000",
+    "name": "Necropsy tables or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33935000",
+    "name": "Post-mortem animal dissection tables or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33936000",
+    "name": "Embalming workstations or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33937000",
+    "name": "Autopsy downdraft workstations or accessories",
+    "parent": "33930000"
+  },
+  {
+    "code": "33940000",
+    "name": "Cadaver transport and storage equipment and supplies",
+    "parent": "33900000"
+  },
+  {
+    "code": "33941000",
+    "name": "Cadaver storage racks",
+    "parent": "33940000"
+  },
+  {
+    "code": "33942000",
+    "name": "Cadaver carriers",
+    "parent": "33940000"
+  },
+  {
+    "code": "33943000",
+    "name": "Cadaver scissor lift trolleys",
+    "parent": "33940000"
+  },
+  {
+    "code": "33944000",
+    "name": "Morgue cabinet refrigerators or freezers",
+    "parent": "33940000"
+  },
+  {
+    "code": "33945000",
+    "name": "Morgue walk in refrigerators",
+    "parent": "33940000"
+  },
+  {
+    "code": "33946000",
+    "name": "Autopsy carts",
+    "parent": "33940000"
+  },
+  {
+    "code": "33947000",
+    "name": "Cadaver trays",
+    "parent": "33940000"
+  },
+  {
+    "code": "33948000",
+    "name": "Cadaver lifter or transfer devices",
+    "parent": "33940000"
+  },
+  {
+    "code": "33949000",
+    "name": "Body transport containers",
+    "parent": "33940000"
+  },
+  {
+    "code": "33950000",
+    "name": "Clinical forensics equipment and supplies",
+    "parent": "33900000"
+  },
+  {
+    "code": "33951000",
+    "name": "Post-mortem fingerprint or impression materials",
+    "parent": "33950000"
+  },
+  {
+    "code": "33952000",
+    "name": "Transport equipment and auxiliary products to transportation",
+    "parent": "33950000"
+  },
+  {
+    "code": "33953000",
+    "name": "Post-mortem blood detection kits or supplies",
+    "parent": "33950000"
+  },
+  {
+    "code": "33954000",
+    "name": "Biological evidence collection kits",
+    "parent": "33950000"
+  },
+  {
+    "code": "33960000",
+    "name": "Embalming equipment and supplies",
+    "parent": "33900000"
+  },
+  {
+    "code": "33961000",
+    "name": "Embalming cavity injectors",
+    "parent": "33960000"
+  },
+  {
+    "code": "33962000",
+    "name": "Embalming vein drainage tubes",
+    "parent": "33960000"
+  },
+  {
+    "code": "33963000",
+    "name": "Embalming fluids or chemical treatments",
+    "parent": "33960000"
+  },
+  {
+    "code": "33964000",
+    "name": "Embalming injecting tubes",
+    "parent": "33960000"
+  },
+  {
+    "code": "33965000",
+    "name": "Embalming sinks or accessories",
+    "parent": "33960000"
+  },
+  {
+    "code": "33966000",
+    "name": "Embalming kits",
+    "parent": "33960000"
+  },
+  {
+    "code": "33967000",
+    "name": "Embalming injector needles",
+    "parent": "33960000"
+  },
+  {
+    "code": "33968000",
+    "name": "Eye caps",
+    "parent": "33960000"
+  },
+  {
+    "code": "33970000",
+    "name": "Mortuary equipment and supplies",
+    "parent": "33900000"
+  },
+  {
+    "code": "33971000",
+    "name": "Mortuary outfits",
+    "parent": "33970000"
+  },
+  {
+    "code": "33972000",
+    "name": "Mortuary packs",
+    "parent": "33970000"
+  },
+  {
+    "code": "33973000",
+    "name": "Mortuary wraps",
+    "parent": "33970000"
+  },
+  {
+    "code": "33974000",
+    "name": "Mortuary aspirators",
+    "parent": "33970000"
+  },
+  {
+    "code": "33975000",
+    "name": "Mortuary hardening compounds",
+    "parent": "33970000"
+  }
+]
