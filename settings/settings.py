@@ -11,8 +11,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'asdas#EDdsad%#C#c98C(<3*(#')
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 
 CORS_ALLOWED_ORIGINS = [f'https://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')]
 # CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS')
