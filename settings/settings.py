@@ -14,9 +14,9 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
 # ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = [f'http://{x}' for x in ALLOWED_HOSTS]
+CSRF_TRUSTED_ORIGINS = [f'https://{x}' for x in ALLOWED_HOSTS]
 
-CORS_ALLOWED_ORIGINS = [f'http://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')]
+CORS_ALLOWED_ORIGINS = [f'https://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')]
 
 CORS_ALLOW_CREDENTIALS = True
 
