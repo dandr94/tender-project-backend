@@ -11,13 +11,14 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'asdas#EDdsad%#C#c98C(<3*(#')
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [f'http://{x}' for x in ALLOWED_HOSTS]
 
-CORS_ALLOWED_ORIGINS = [f'http://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')]
+# CORS_ALLOWED_ORIGINS = [f'http://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')]
 
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     # Django Default Apps
