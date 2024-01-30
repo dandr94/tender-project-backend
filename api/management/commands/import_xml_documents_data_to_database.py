@@ -1,5 +1,4 @@
 import os
-import pprint
 import re
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -9,7 +8,7 @@ from django.db import transaction
 from ..form_utils.form_03.extract_base_contract import extract_base_contract_data
 from ..form_utils.form_03.extract_authority import extract_authority_contract_data
 from ..form_utils.form_03.extract_object import extract_object_data
-from ...models import Authority, ContractObject, Contract, Winner, Category, ContractObjectItem
+from ...models import Authority, ContractObject, Contract, Winner, Category, ContractObjectItem, BlackListDocument
 
 
 def clean_official_name(name):
@@ -34,7 +33,6 @@ def fix_date_publish(date):
 def create_or_get_authority(authority_data):
     official_name = clean_official_name(authority_data.get('OFFICIALNAME'))
 
-    # Use get() instead of direct attribute access to avoid KeyError
     defaults = {
         'address': authority_data.get('ADDRESS', ''),
         'town': authority_data.get('TOWN', ''),
@@ -49,17 +47,15 @@ def create_or_get_authority(authority_data):
         'website': authority_data.get('URL_GENERAL', ''),
     }
 
-    # Use get_or_create with defaults
     authority, created = Authority.objects.get_or_create(
         official_name=official_name,
         defaults=defaults
     )
 
     if not created:
-        # Update existing authority fields
         for field, value in defaults.items():
             current_value = getattr(authority, field)
-            if current_value is not None:  # Check for None before concatenating
+            if current_value is not None:
                 if value not in current_value:
                     setattr(authority, field, f"{current_value}, {value}")
             else:
@@ -73,7 +69,6 @@ def create_or_get_authority(authority_data):
 def create_or_get_winner(winner_data):
     official_name = clean_official_name(winner_data['CONTRACTOR_DATA'][0].get('OFFICIALNAME'))
 
-    # Use get() instead of direct attribute access to avoid KeyError
     defaults = {
         'address': winner_data['CONTRACTOR_DATA'][0].get('ADDRESS', ''),
         'town': winner_data['CONTRACTOR_DATA'][0].get('TOWN', ''),
@@ -81,21 +76,20 @@ def create_or_get_winner(winner_data):
         'country': winner_data['CONTRACTOR_DATA'][0].get('COUNTRY', ''),
         'email': winner_data['CONTRACTOR_DATA'][0].get('E_MAIL', ''),
         'nuts': winner_data['CONTRACTOR_DATA'][0].get('NUTS', ''),
+        'website': winner_data['CONTRACTOR_DATA'][0].get('URL', ''),
+
     }
 
-    # Use get_or_create with defaults
     winner, created = Winner.objects.get_or_create(
         official_name=official_name,
         defaults=defaults
     )
 
     if not created:
-        # Update existing winner fields
         for field, value in defaults.items():
             current_value = getattr(winner, field)
             if current_value is not None:
                 if value not in current_value:
-                    # Check for None before concatenating
                     setattr(winner, field, f"{current_value}, {value}")
             else:
                 setattr(winner, field, value)
@@ -106,10 +100,9 @@ def create_or_get_winner(winner_data):
 
 
 def create_contract_object_item(item_data, contract_object):
-    # Check if there are winners for the item
     winners_data = item_data.get('WINNERS', [])
     if not winners_data:
-        return None  # No winners, skip creation
+        return None
 
     contract_object_item = ContractObjectItem.objects.create(
         contract_object=contract_object,
@@ -126,11 +119,11 @@ def create_contract_object_item(item_data, contract_object):
     if contract_object.cpv_main_code.code not in cpv_additional:
         cpv_additional.append(contract_object.cpv_main_code.code)
 
-    # Link additional CPV codes to the item
     for cpv_code in cpv_additional:
         cpv_category = Category.objects.get(code=cpv_code)
         contract_object_item.cpv_additional.add(cpv_category)
 
+    # Bulk create winners???
     for winner_data in item_data.get('WINNERS', []):
         winner = create_or_get_winner(winner_data)
 
@@ -172,38 +165,46 @@ def link_original_cpv_codes(contract, original_cpv_codes):
 
 
 def save_data_to_models(data):
-    authority_data = data.get('AUTHORITY_DATA', {})
-    base_contract_data = data.get('BASE_CONTRACT_DATA', {})
-    object_data = data.get('OBJECT_DATA', {})
+    with transaction.atomic():
+        authority_data = data.get('AUTHORITY_DATA', {})
+        base_contract_data = data.get('BASE_CONTRACT_DATA', {})
+        object_data = data.get('OBJECT_DATA', {})
 
-    authority = create_or_get_authority(authority_data)
-    contract_data_mapped = {x.lower(): y for x, y in object_data.items() if x != 'ITEMS'}
-    contract_object = create_contract_object(contract_data_mapped)
+        authority = create_or_get_authority(authority_data)
+        contract_data_mapped = {x.lower(): y for x, y in object_data.items() if x != 'ITEMS'}
+        contract_object = create_contract_object(contract_data_mapped)
 
-    for item_id, item_data in object_data.get('ITEMS', {}).items():
-        create_contract_object_item(item_data, contract_object)
+        for item_id, item_data in object_data.get('ITEMS', {}).items():
+            create_contract_object_item(item_data, contract_object)
 
-    contract = create_contract(base_contract_data, authority, contract_object)
+        contract = create_contract(base_contract_data, authority, contract_object)
 
-    original_cpv_codes = base_contract_data.get('ORIGINAL_CPV', [])
-    link_original_cpv_codes(contract, original_cpv_codes)
+        original_cpv_codes = base_contract_data.get('ORIGINAL_CPV', [])
+        link_original_cpv_codes(contract, original_cpv_codes)
 
 
 class Command(BaseCommand):
     help = 'Import XML data from folder to Database'
 
     def handle(self, *args, **options):
-        root_directory = r'C:\Users\dandr\OneDrive\Documents\xml_test_medical\F06'  # Replace with your actual root directory
+        root_directory = r'C:\Users\dandr\OneDrive\Documents\xml_test_medical\F03'
 
-        with transaction.atomic():
-            for folder_name, sub_folders, filenames in os.walk(root_directory):
-                for filename in filenames:
-                    if filename.endswith('.xml'):
-                        xml_file_path = os.path.join(folder_name, filename)
+        for folder_name, sub_folders, filenames in os.walk(root_directory):
+            for filename in filenames:
+                if filename.endswith('.xml'):
+                    xml_file_path = os.path.join(folder_name, filename)
 
-                        tree = ET.parse(xml_file_path)
+                    tree = ET.parse(xml_file_path)
 
-                        self.stdout.write(f'[{get_current_time()}] - Working on {xml_file_path}...')
+                    self.stdout.write(f'[{get_current_time()}] - Working on {xml_file_path}...')
+
+                    blacklist, created = BlackListDocument.objects.get_or_create(document_id=filename)
+
+                    try:
+                        if not created:
+                            self.stdout.write(self.style.WARNING(
+                                f'[{get_current_time()}] - {filename} is already processed! Continuing to next xml...'))
+                            continue
 
                         data_dict = self.extract_data_from_xml(tree, xml_file_path)
 
@@ -211,6 +212,13 @@ class Command(BaseCommand):
 
                         self.stdout.write(self.style.SUCCESS(
                             f'[{get_current_time()}] - Successfully saved data to database from {xml_file_path}'))
+
+                    except Exception as e:
+                        self.stdout.write(self.style.ERROR(
+                            f'[{get_current_time()}] - Error processing {filename}: {e}'))
+                        self.stdout.write(self.style.WARNING(
+                            f'[{get_current_time()}] - Deleting {filename} from Database'))
+                        blacklist.delete()
 
     def extract_data_from_xml(self, tree, xml_file_path):
         base_contract_data = extract_base_contract_data(tree)

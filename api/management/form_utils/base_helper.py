@@ -82,9 +82,24 @@ class BaseHelper:
 
         return float(val_total.text)
 
-    @staticmethod
-    def get_val_total_currency(obj):
-        return obj.get('CURRENCY')
+    def get_val_total_estimate(self, obj):
+        val_total_estimate = self.find_element(obj, 'VAL_ESTIMATED_TOTAL')
+
+        return float(val_total_estimate.text)
+
+    def get_val_total_currency(self, obj):
+        val_total = self.find_element(obj, 'VAL_TOTAL')
+
+        val_total_currency = val_total.get('CURRENCY')
+
+        return val_total_currency
+
+    def get_val_total_estimate_currency(self, obj):
+        val_total_estimate = self.find_element(obj, 'VAL_ESTIMATED_TOTAL')
+
+        val_total_estimate_currency = val_total_estimate.get('CURRENCY')
+
+        return val_total_estimate_currency
 
     def get_val_total_in_euros(self, currency, val_total):
         if currency not in self.exchange_rates_to_euros:

@@ -58,6 +58,16 @@ def extract_award_contract_winner_data(award_contract):
                 award_contract_data['VAL_TOTAL_IN_EUROS'] = award_content_helper.get_val_total_in_euros(
                     award_contract_data['VAL_TOTAL_CURRENCY'],
                     award_contract_data['VAL_TOTAL'])
+
+            elif award_content_helper.element_exists(award_contract_awarded_contract_values, 'VAL_ESTIMATED_TOTAL'):
+                award_contract_data['VAL_TOTAL'] = award_content_helper.get_val_total_estimate(
+                    award_contract)
+                award_contract_data['VAL_TOTAL_CURRENCY'] = award_content_helper.get_val_total_estimate_currency(
+                    award_contract)
+                award_contract_data['VAL_TOTAL_IN_EUROS'] = award_content_helper.get_val_total_in_euros(
+                    award_contract_data['VAL_TOTAL_CURRENCY'],
+
+                    float(award_contract_data['VAL_TOTAL']))
             elif award_content_helper.element_exists(award_contract_awarded_contract_values, 'VAL_RANGE_TOTAL'):
                 award_contract_awarded_contract_values_val_range_total = award_content_helper.get_award_contract_awarded_contract_values_val_range_total(
                     award_contract_awarded_contract_values)

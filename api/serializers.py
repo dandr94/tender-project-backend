@@ -46,29 +46,68 @@ class ContractObjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ContractSerializer(serializers.ModelSerializer):
-    contract_object = ContractObjectSerializer()
-
-    class Meta:
-        model = Contract
-        fields = '__all__'
-
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-
-        # Convert original_cpv IDs to a list of dictionaries containing code and name
-        original_cpv_ids = representation.get('original_cpv', [])
-        original_cpv_data = Category.objects.filter(id__in=original_cpv_ids)
-        original_cpv_serialized = CategorySerializer(original_cpv_data, many=True).data
-
-        representation['original_cpv'] = original_cpv_serialized
-
-        return representation
-
-
 class ContractObjectItemSerializer(serializers.ModelSerializer):
-    contract_object = ContractObjectSerializer()
-
     class Meta:
         model = ContractObjectItem
         fields = '__all__'
+
+
+class CountryAuthoritySerializer(serializers.ModelSerializer):
+    top_cpv_codes = CategorySerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Authority
+        fields = ['id', 'official_name', 'top_cpv_codes']
+
+
+class CountryContractorSerializer(serializers.ModelSerializer):
+    top_cpv_codes = CategorySerializer(many=True, read_only=True)
+    total_value = serializers.DecimalField(max_digits=50, decimal_places=2, read_only=True)
+
+
+    class Meta:
+        model = Winner
+        fields = ['id', 'official_name', 'top_cpv_codes', 'total_value']
+
+
+class CountryCpvInfoSerializer(serializers.Serializer):
+    cpv_additional__code = serializers.CharField()
+    cpv_additional__name = serializers.CharField()
+    val_total = serializers.FloatField()
+
+
+class AuthorityContractSerializer(serializers.ModelSerializer):
+    uri = serializers.CharField()
+    short_title = serializers.CharField()
+    original_cpv = CategorySerializer(many=True, read_only=True, source='original_cpv.all')
+    contract_nature = serializers.CharField()
+    date_published = serializers.DateField()
+    contract_object_title = serializers.CharField(source='contract_object.title')
+    contract_object_short_descr = serializers.CharField(source='contract_object.short_descr')
+    contract_object_val_total_in_euros = serializers.FloatField(source='contract_object.val_total_in_euros')
+
+    class Meta:
+        model = Contract
+        fields = [
+            'id',
+            'uri', 'short_title', 'original_cpv',
+            'contract_nature', 'date_published',
+            'contract_object_title', 'contract_object_short_descr',
+            'contract_object_val_total_in_euros'
+        ]
+
+
+class CustomWinnerItemsSerializer(serializers.ModelSerializer):
+    cpv_additional = CategorySerializer(many=True, read_only=True)
+    contract_object_title = serializers.CharField(source='contract_object.title', read_only=True)
+    authority_official_name = serializers.CharField(source='contract_object.contract.authority.official_name',
+                                                    read_only=True)
+    contract_uri = serializers.CharField(source='contract_object.contract.uri', read_only=True)
+    winner = WinnerSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = ContractObjectItem
+        fields = [
+            'id', 'title', 'short_descr', 'val_total', 'val_total_currency', 'val_total_in_euros',
+            'cpv_additional', 'contract_object_title', 'authority_official_name', 'contract_uri', 'winner'
+        ]

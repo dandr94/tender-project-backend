@@ -76,12 +76,10 @@ def extract_object_data(tree):
         contract_data['LOT_DIVISION'] = True
 
     if contract_object_helper.element_exists(object_contract, 'VAL_TOTAL'):
-        val_total = contract_object_helper.find_element(object_contract, 'VAL_TOTAL')
-
         contract_data['VAL_TOTAL'] = contract_object_helper.get_val_total(
             object_contract)
         contract_data['VAL_TOTAL_CURRENCY'] = contract_object_helper.get_val_total_currency(
-            val_total)
+            object_contract)
         contract_data['VAL_TOTAL_IN_EUROS'] = contract_object_helper.get_val_total_in_euros(
             contract_data['VAL_TOTAL_CURRENCY'], contract_data['VAL_TOTAL'])
     else:

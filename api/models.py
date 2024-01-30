@@ -57,6 +57,12 @@ class TenderUser(AbstractBaseUser, PermissionsMixin):
     objects = TenderUserManager()
 
 
+class BlackListDocument(models.Model):
+    DOCUMENT_UNIQUE_ID_MAX_LEN = 255
+
+    document_id = models.CharField(max_length=DOCUMENT_UNIQUE_ID_MAX_LEN, unique=True)
+
+
 class Category(MPTTModel):
     CODE_MAX_LEN = 20
     NAME_MAX_LEN = 255
@@ -83,37 +89,33 @@ class Authority(models.Model):
     NUTS_MAX_LEN = 255
 
     official_name = models.CharField(max_length=OFFICIAL_NAME_MAX_LEN, unique=True)
-    address = models.CharField(max_length=ADDRESS_MAX_LEN, null=True, blank=True)
-    town = models.CharField(max_length=TOWN_MAX_LEN, null=True, blank=True)
-    contact_point = models.CharField(max_length=CONTACT_POINT_MAX_LEN, null=True, blank=True)
-    postal_code = models.CharField(max_length=POSTAL_CODE_MAX_LEN, null=True, blank=True)
-    fax = models.CharField(max_length=FAX_MAX_LEN, null=True, blank=True)
-    national_id = models.CharField(max_length=NATIONAL_ID_MAX_LEN, null=True, blank=True)
+    address = models.TextField(null=True, blank=True)
+    town = models.TextField(null=True, blank=True)
+    contact_point = models.TextField(null=True, blank=True)
+    postal_code = models.TextField(null=True, blank=True)
+    fax = models.TextField(null=True, blank=True)
+    national_id = models.TextField(null=True, blank=True)
     # USE FOREIGN KEY AND MAKE COUNTRY MODEL
-    country = models.CharField(max_length=COUNTRY_MAX_LEN, null=True, blank=True)
-    phone = models.CharField(max_length=PHONE_MAX_LEN, null=True, blank=True)
-    email = models.EmailField(max_length=EMAIL_MAX_LEN, null=True, blank=True)
-    nuts = models.CharField(max_length=NUTS_MAX_LEN, null=True, blank=True)
-    website = models.URLField(null=True, blank=True)
+    country = models.CharField(null=True, blank=True)
+    phone = models.TextField(null=True, blank=True)
+    email = models.TextField(null=True, blank=True)
+    nuts = models.TextField(null=True, blank=True)
+    website = models.TextField(null=True, blank=True)
 
 
 class Winner(models.Model):
     OFFICIAL_NAME_MAX_LEN = 255
-    ADDRESS_MAX_LEN = 255
-    TOWN_MAX_LEN = 255
-    POSTAL_CODE_MAX_LEN = 255
     COUNTRY_MAX_LEN = 255
-    EMAIL_MAX_LEN = 255
-    NUTS_MAX_LEN = 255
 
     official_name = models.CharField(max_length=OFFICIAL_NAME_MAX_LEN, unique=True)
-    address = models.CharField(max_length=ADDRESS_MAX_LEN, null=True, blank=True)
-    town = models.CharField(max_length=TOWN_MAX_LEN, null=True, blank=True)
-    postal_code = models.CharField(max_length=POSTAL_CODE_MAX_LEN, null=True, blank=True)
+    address = models.TextField(null=True, blank=True)
+    town = models.TextField(null=True, blank=True)
+    postal_code = models.TextField(null=True, blank=True)
     country = models.CharField(max_length=COUNTRY_MAX_LEN, null=True, blank=True)
-    email = models.EmailField(max_length=EMAIL_MAX_LEN, null=True, blank=True)
-    nuts = models.CharField(max_length=NUTS_MAX_LEN, null=True, blank=True)
+    email = models.TextField(null=True, blank=True)
+    nuts = models.TextField(null=True, blank=True)
     val_total = models.FloatField(default=0)  # in Euros
+    website = models.TextField(null=True, blank=True)
 
 
 class ContractObject(models.Model):

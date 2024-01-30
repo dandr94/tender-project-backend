@@ -3,23 +3,31 @@ from django.http import JsonResponse
 from django.db.models import Count, Sum
 
 from rest_framework import status, permissions
+from rest_framework.generics import get_object_or_404, ListAPIView
+from rest_framework.pagination import PageNumberPagination
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Authority, Contract, ContractObjectItem, Category, ContractObject, Winner
 from .serializers import AuthoritySerializer, WinnerSerializer, CPVInfoSerializer, CategorySerializer, \
-    CPVRankingSerializer, ContractSerializer, UserSerializer
+    CPVRankingSerializer, UserSerializer, ContractObjectItemSerializer, \
+    CustomWinnerItemsSerializer, AuthorityContractSerializer, CountryAuthoritySerializer, CountryContractorSerializer, \
+    CountryCpvInfoSerializer
+
+
+class CustomPaginator(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 
 class HomeMapView(APIView):
     def get(self, request, *args, **kwargs):
-        # Query to get country-wise contract counts
         country_data = Authority.objects.values('country').annotate(
             country_contracts=Count('contract')
         )
 
-        # Query to get country-wise original_cpv counts with code and name
         original_cpv_counts = Contract.objects.values(
             'authority__country',
             'original_cpv__code',
@@ -28,24 +36,23 @@ class HomeMapView(APIView):
             original_cpv_count=Count('original_cpv')
         )
 
-        # Structure the data as needed
         result_data = {}
         for country_item in country_data:
             country_code = country_item['country']
+
             country_result = {
                 'country': country_code,
                 'country_contracts': country_item['country_contracts'],
                 'top_original_cpvs': {}
             }
 
-            # Find original_cpv counts for the country
             cpvs_for_country = filter(lambda x: x['authority__country'] == country_code, original_cpv_counts)
 
-            # Sort original cpvs based on counts and get the top 3
             top_original_cpvs = sorted(cpvs_for_country, key=lambda x: x['original_cpv_count'], reverse=True)[:3]
 
             for cpv_item in top_original_cpvs:
                 cpv_key = f"{cpv_item['original_cpv__code']} - {cpv_item['original_cpv__name']}"
+
                 country_result['top_original_cpvs'][cpv_key] = cpv_item['original_cpv_count']
 
             result_data[country_code] = country_result
@@ -56,15 +63,10 @@ class HomeMapView(APIView):
 class CountryInformation(APIView):
     def get(self, request, country_code):
         try:
-            total_val_euros = 0
 
-            # Get all contracts where the authority's country equals the specified country_code
-            contracts = Contract.objects.select_related('contract_object', 'authority') \
-                .filter(authority__country=country_code)
-
-            # Iterate over the contracts and sum the val_total_in_euros from the related ContractObject
-            for contract in contracts:
-                total_val_euros += contract.contract_object.val_total_in_euros
+            total_val_euros = Contract.objects.filter(authority__country=country_code) \
+                                  .aggregate(total_val_euros=Sum('contract_object__val_total_in_euros'))[
+                                  'total_val_euros'] or 0
 
             data = {
                 'country_flag': '???',
@@ -79,14 +81,22 @@ class CountryInformation(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class CountryAuthorities(APIView):
-    def get(self, request, country_code):
-        try:
-            # Query authorities based on the country code
-            authorities = Authority.objects.filter(country=country_code)
+class CountryAuthorities(ListAPIView):
+    serializer_class = CountryAuthoritySerializer
+    pagination_class = CustomPaginator
 
-            # Serialize the data if needed
-            serializer = AuthoritySerializer(authorities, many=True)
+    def get_queryset(self):
+        country_code = self.kwargs['country_code']
+
+        return Authority.objects.filter(country=country_code).order_by('id')
+
+    def list(self, request, *args, **kwargs):
+        try:
+            queryset = self.filter_queryset(self.get_queryset())
+
+            paginated_queryset = self.paginate_queryset(queryset)
+
+            serializer = self.get_serializer(paginated_queryset, many=True)
 
             for authority in serializer.data:
                 authority_id = authority['id']
@@ -95,64 +105,89 @@ class CountryAuthorities(APIView):
                                     .values('original_cpv__code', 'original_cpv__name') \
                                     .annotate(occurrence_count=Count('original_cpv__code')) \
                                     .order_by('-occurrence_count')[:3]
-                val_total = ContractObject.objects.filter(contract__authority_id=authority_id) \
+
+                total_value = ContractObject.objects.filter(contract__authority_id=authority_id) \
                     .aggregate(total_value=Sum('val_total_in_euros'))['total_value']
 
-                authority['top_cpv_codes'] = top_cpv_codes
-                authority['val_total'] = val_total
+                authority['total_value'] = total_value
 
-            return Response({'authorities': serializer.data}, status=status.HTTP_200_OK)
+                authority['top_cpv_codes'] = top_cpv_codes
+
+            return self.get_paginated_response(serializer.data)
+
+        except Authority.DoesNotExist:
+            return Response({'error': 'Authorities not found'}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class CountryContractors(APIView):
-    def get(self, request, country_code):
-        try:
-            # Query winners based on the country code
-            contractors = Winner.objects.filter(country=country_code)
+class CountryContractors(ListAPIView):
+    serializer_class = CountryContractorSerializer
+    pagination_class = CustomPaginator
 
-            # Serialize the data using the serializer
-            serializer = WinnerSerializer(contractors, many=True)
+    def get_queryset(self):
+        country_code = self.kwargs['country_code']
+
+        # Annotate the queryset with total_value and order by it
+        return Winner.objects.filter(country=country_code) \
+            .annotate(total_value=Sum('contractobjectitem__val_total_in_euros')) \
+            .order_by('-total_value')
+
+    def list(self, request, *args, **kwargs):
+        try:
+            queryset = self.filter_queryset(self.get_queryset())
+
+            paginated_queryset = self.paginate_queryset(queryset)
+
+            serializer = self.get_serializer(paginated_queryset, many=True)
 
             for contractor in serializer.data:
                 contractor_id = contractor['id']
 
-                if contractor['official_name'] == 'getinge gmbh':
-                    items = ContractObjectItem.objects.filter(winner__id=contractor_id)
-                    for item in items:
-                        print(item.contract_object.id)
-                        contract = Contract.objects.get(contract_object_id=35)
-                        print(contract.uri)
+                # No need to recalculate total_value here, it's already annotated in the queryset
 
-                top_cpv_codes = ContractObjectItem.objects.filter(winner__id=contractor_id) \
+                top_cpv_codes = ContractObjectItem.objects.filter(winner=contractor_id) \
                                     .values('cpv_additional__code', 'cpv_additional__name') \
                                     .annotate(occurrence_count=Count('cpv_additional__code')) \
                                     .order_by('-occurrence_count')[:3]
 
                 contractor['top_cpv_codes'] = top_cpv_codes
 
-            return Response({'contractors': serializer.data}, status=status.HTTP_200_OK)
+            return self.get_paginated_response(serializer.data)
+
+        except Winner.DoesNotExist:
+            return Response({'error': 'Contractors not found'}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class CPVInformation(APIView):
-    def get(self, request, country_code):
+class CountryCPVInformation(ListAPIView):
+    serializer_class = CountryCpvInfoSerializer
+    pagination_class = CustomPaginator
+
+    def get_queryset(self):
+        country_code = self.kwargs['country_code']
+
+        queryset = ContractObjectItem.objects.filter(contract_object__contract__authority__country=country_code)
+
+        queryset = queryset.filter(cpv_additional__code__startswith='33')
+
+        return queryset
+
+    def list(self, request, *args, **kwargs):
         try:
-            # Group by CPV code and calculate the total value for each group
-            cpv_info = ContractObjectItem.objects.filter(contract_object__contract__authority__country=country_code) \
-                .values('cpv_additional__code', 'cpv_additional__name') \
-                .annotate(val_total=Sum('val_total_in_euros'))
+            queryset = self.filter_queryset(self.get_queryset())
 
-            cpv_info = [item for item in cpv_info if item['cpv_additional__code'].startswith('33')]
+            cpv_info = queryset.values('cpv_additional__code', 'cpv_additional__name') \
+                .annotate(val_total=Sum('val_total_in_euros')).order_by('-val_total')
 
-            # Serialize the CPV information
-            serializer = CPVInfoSerializer(cpv_info, many=True)
+            page = self.paginate_queryset(cpv_info)
 
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            serializer = self.get_serializer(page, many=True)
+
+            return self.get_paginated_response(serializer.data)
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -175,39 +210,59 @@ class CPVCategories(APIView):
                 return Response({'cpv_ranking': serializer.data}, status=status.HTTP_200_OK)
 
             else:
-                # If no CPV code is provided, return all categories starting with '33'
                 cpv_categories = Category.objects.filter(code__startswith='33')
+
                 serializer = CategorySerializer(cpv_categories, many=True)
+
                 return Response({'cpv_categories': serializer.data}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class WinnersList(APIView):
-    def get(self, request):
-        try:
-            winners = Winner.objects.all()
+class CPVCountryRanking(ListAPIView):
+    serializer_class = CPVRankingSerializer
+    pagination_class = CustomPaginator
 
-            serializer = WinnerSerializer(winners, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    def get_queryset(self):
+        cpv_code = self.kwargs['cpv_code']
+        queryset = ContractObjectItem.objects.filter(cpv_additional__code=cpv_code)
+        return queryset
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+
+        cpv_ranking = queryset.values('contract_object__contract__authority__country') \
+            .annotate(val_total=Sum('val_total_in_euros')) \
+            .order_by('-val_total')
+
+        page = self.paginate_queryset(cpv_ranking)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(cpv_ranking, many=True)
+        return Response(serializer.data)
+
+
+class WinnersList(ListAPIView):
+    queryset = Winner.objects.all().order_by('id')
+    serializer_class = WinnerSerializer
+    pagination_class = CustomPaginator
 
 
 class AuthorityDetails(APIView):
     def get(self, request, official_name):
         try:
-            # Retrieve the authority based on the official_name
             authority = Authority.objects.get(official_name=official_name)
 
-            # Get the total number of contracts and total val_total spent by the authority
             total_contracts = Contract.objects.filter(authority=authority).count()
+
             val_total = \
                 Contract.objects.filter(authority=authority).aggregate(Sum('contract_object__val_total_in_euros'))[
                     'contract_object__val_total_in_euros__sum']
 
-            # Serialize the authority details along with additional information
             serializer = AuthoritySerializer(authority)
+
             data = {
                 'authority_details': serializer.data,
                 'authority_contracts_overview': {'total_contracts': total_contracts,
@@ -223,18 +278,26 @@ class AuthorityDetails(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class AuthorityContracts(APIView):
-    def get(self, request, official_name):
+class AuthorityContracts(ListAPIView):
+    serializer_class = AuthorityContractSerializer
+    pagination_class = CustomPaginator
+
+    def get_queryset(self):
+        official_name = self.kwargs['official_name']
+
+        authority = get_object_or_404(Authority, official_name=official_name)
+
+        return Contract.objects.filter(authority=authority).order_by('id')
+
+    def list(self, request, *args, **kwargs):
         try:
-            # Retrieve the authority based on the official_name
-            authority = Authority.objects.get(official_name=official_name)
-            # Retrieve all contracts associated with the authority
-            contracts = Contract.objects.filter(authority=authority)
+            queryset = self.filter_queryset(self.get_queryset())
 
-            # Serialize the contract details
-            serializer = ContractSerializer(contracts, many=True)
+            paginated_queryset = self.paginate_queryset(queryset)
 
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            serializer = self.get_serializer(paginated_queryset, many=True)
+
+            return self.get_paginated_response(serializer.data)
 
         except Authority.DoesNotExist:
             return Response({'error': 'Authority not found'}, status=status.HTTP_404_NOT_FOUND)
@@ -247,12 +310,14 @@ class WinnerDetails(APIView):
     def get(self, request, official_name):
         try:
             winner = Winner.objects.get(official_name=official_name)
-            contract_object_items = ContractObjectItem.objects.filter(winner=winner)
+
+            contract_object_items = ContractObjectItem.objects.filter(winner=winner).count()
+
             serializer = WinnerSerializer(winner)
 
             data = {
                 'winner_details': serializer.data,
-                'winner_contracts_overview': {'total_contracts': len(contract_object_items),
+                'winner_contracts_overview': {'total_contracts': contract_object_items,
                                               'val_total': serializer.data['val_total']}
             }
 
@@ -265,32 +330,26 @@ class WinnerDetails(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class WinnerObjectItems(APIView):
-    def get(self, request, official_name):
+class WinnerObjectItems(ListAPIView):
+    serializer_class = CustomWinnerItemsSerializer
+    pagination_class = CustomPaginator
+
+    def get_queryset(self):
+        official_name = self.kwargs['official_name']
+
+        winner = get_object_or_404(Winner, official_name=official_name)
+
+        return ContractObjectItem.objects.filter(winner=winner).order_by('id')
+
+    def list(self, request, *args, **kwargs):
         try:
-            winner = Winner.objects.get(official_name=official_name)
-            contract_object_items = ContractObjectItem.objects.filter(winner=winner)
+            queryset = self.filter_queryset(self.get_queryset())
 
-            response_data = []
+            paginated_queryset = self.paginate_queryset(queryset)
 
-            for item in contract_object_items:
-                contract_object = item.contract_object
-                authority = contract_object.contract.authority
+            serializer = self.get_serializer(paginated_queryset, many=True)
 
-                data = {
-                    'id': item.id,
-                    "contract_object_item_title": item.title if item.title else item.short_descr,
-                    "contract_object_title": contract_object.title,
-                    "authority_official_name": authority.official_name,
-                    'contract_uri': contract_object.contract.uri,
-                    'val_total': item.val_total_in_euros,
-                    'cpv_codes': [f'{cpv.code} - {cpv.name}' for cpv in item.cpv_additional.all()]
-
-                }
-
-                response_data.append(data)
-
-            return Response(response_data, status=status.HTTP_200_OK)
+            return self.get_paginated_response(serializer.data)
 
         except Winner.DoesNotExist:
             return Response({'error': 'Winner object items not found'}, status=status.HTTP_404_NOT_FOUND)

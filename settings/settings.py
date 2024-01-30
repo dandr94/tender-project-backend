@@ -12,10 +12,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'asdas#EDdsad%#C#c98C(<3*(#')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 
 CORS_ALLOWED_ORIGINS = [f'https://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')]
-# CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS')
+
+if os.getenv('APP_ENVIRONMENT') == 'Development':
+    CORS_ALLOWED_ORIGINS.extend([f'http://{x}' for x in os.getenv('CORS_ALLOWED_ORIGINS', '').split(' ')])
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -89,8 +90,12 @@ if os.getenv('APP_ENVIRONMENT') != 'Development':
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': os.getenv('DB_ENGINE_DEV'),
+            'NAME': os.getenv('DB_NAME_DEV'),
+            'USER': os.getenv('DB_USER_DEV'),
+            'PASSWORD': os.getenv('DB_PASSWORD_DEV'),
+            'HOST': os.getenv('DB_HOST_DEV'),
+            'PORT': os.getenv('DB_PORT_DEV'),
         }
     }
 
@@ -133,6 +138,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100
 }
 
 LOGIN_REDIRECT_URL = '/'
