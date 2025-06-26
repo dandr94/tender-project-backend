@@ -2,7 +2,7 @@ from django.urls import path
 
 from api.views import CountryInformation, CountryAuthorities, CountryContractors, CPVCategories, \
     AuthorityDetails, AuthorityContracts, HomeMapView, WinnerDetails, WinnerObjectItems, WinnersList, \
-    CountryCPVInformation, CPVCountryRanking
+    CountryCPVInformation, CPVCountryRanking, CountriesList, AdvancedSearchView
 
 urlpatterns = [
     # Index Map API
@@ -16,6 +16,11 @@ urlpatterns = [
 
     # Categories API
     path('categories/', CPVCategories.as_view(), name='categories'),
+
+    # Countries API
+    path('countries/', CountriesList.as_view(), name='countries'),
+
+    # Contractors API
     path('contractors/', WinnersList.as_view(), name='contractors'),
 
     # Rankings API
@@ -28,4 +33,8 @@ urlpatterns = [
     # Winner Page API
     path('contractor/<str:official_name>/', WinnerDetails.as_view(), name='contractor_details'),
     path('contractor/<str:official_name>/contracts/', WinnerObjectItems.as_view(), name='winner_object_items'),
+
+    # Advanced Search API
+    path('advanced-search/', AdvancedSearchView.as_view(), name='advanced_search'),
+
 ]
