@@ -14,6 +14,14 @@ data (TED R2.0.9 and eForms 2021 UBL extension formats) to be automatically pars
 It extracts key information such as contracting authority details, contract descriptions, awarded winners, and CPV
 codes, mapping it to Django models like Authority, Contract, ContractObject, and more.
 
+This project was initially created as an experiment to build a centralized database of public tender data from XML
+documents. The goal was to:
+
+- Learn how to parse and understand TED/eForms XML files manually.
+
+- Build tooling around document parsing without relying on the official TED APIs.
+
+- Create a foundation for tender analysis, comparisons, and public transparency.
 
 > ⚠️ **Warning**
 >
@@ -193,16 +201,3 @@ The importer expects the following key XML elements and namespaces (TED/eForms-c
 
     ```bash
    python manage.py import_xml_documents_data_to_database
-
-## Project Context & Status
-
-This project was initially created as an experiment to build a centralized database of public tender data from XML
-documents. The goal was to:
-
-- Learn how to parse and understand TED/eForms XML files manually.
-
-- Build tooling around document parsing without relying on the official TED APIs.
-
-- Create a foundation for tender analysis, comparisons, and public transparency.
-
-The importer currently supports only F03 form documents (contract award notices).
