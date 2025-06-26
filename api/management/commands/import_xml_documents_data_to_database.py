@@ -5,10 +5,12 @@ from datetime import datetime
 import time
 from django.core.management import BaseCommand
 from django.db import transaction
+
+from settings.settings import BASE_DIR
 from ..form_utils.form_03.extract_base_contract import extract_base_contract_data
 from ..form_utils.form_03.extract_authority import extract_authority_contract_data
 from ..form_utils.form_03.extract_object import extract_object_data
-from ...models import Authority, ContractObject, Contract, Winner, Category, ContractObjectItem, BlackListDocument
+from ...models import Authority, ContractObject, Contract, Winner, Category, ContractObjectItem, Country
 
 
 def clean_official_name(name):
@@ -33,18 +35,21 @@ def fix_date_publish(date):
 def create_or_get_authority(authority_data):
     official_name = clean_official_name(authority_data.get('OFFICIALNAME'))
 
+    country_code = authority_data.get('COUNTRY')
+    country, _ = Country.objects.get_or_create(code=country_code)
+
     defaults = {
-        'address': authority_data.get('ADDRESS', ''),
-        'town': authority_data.get('TOWN', ''),
-        'contact_point': authority_data.get('CONTACT_POINT', ''),
-        'postal_code': authority_data.get('POSTAL_CODE', ''),
+        'address': authority_data.get('ADDRESS'),
+        'town': authority_data.get('TOWN'),
+        'contact_point': authority_data.get('CONTACT_POINT'),
+        'postal_code': authority_data.get('POSTAL_CODE'),
         'fax': authority_data.get('FAX', ''),
-        'national_id': authority_data.get('NATIONALID', ''),
-        'country': authority_data.get('COUNTRY', ''),
-        'phone': authority_data.get('PHONE', ''),
-        'email': authority_data.get('E_MAIL', ''),
-        'nuts': authority_data.get('NUTS', ''),
-        'website': authority_data.get('URL_GENERAL', ''),
+        'national_id': authority_data.get('NATIONALID'),
+        'country': country,
+        'phone': authority_data.get('PHONE'),
+        'email': authority_data.get('E_MAIL'),
+        'nuts': authority_data.get('NUTS'),
+        'website': authority_data.get('URL_GENERAL'),
     }
 
     authority, created = Authority.objects.get_or_create(
@@ -52,14 +57,16 @@ def create_or_get_authority(authority_data):
         defaults=defaults
     )
 
+    # Fix this garbage
+
     if not created:
         for field, value in defaults.items():
-            current_value = getattr(authority, field)
-            if current_value is not None:
-                if value not in current_value:
+            if field != 'country' and value is not None:
+                current_value = getattr(authority, field)
+                if current_value is not None and value not in current_value:
                     setattr(authority, field, f"{current_value}, {value}")
-            else:
-                setattr(authority, field, value)
+                else:
+                    setattr(authority, field, value)
 
         authority.save()
 
@@ -69,14 +76,17 @@ def create_or_get_authority(authority_data):
 def create_or_get_winner(winner_data):
     official_name = clean_official_name(winner_data['CONTRACTOR_DATA'][0].get('OFFICIALNAME'))
 
+    country_code = winner_data['CONTRACTOR_DATA'][0].get('COUNTRY')
+    country, _ = Country.objects.get_or_create(code=country_code)
+
     defaults = {
-        'address': winner_data['CONTRACTOR_DATA'][0].get('ADDRESS', ''),
-        'town': winner_data['CONTRACTOR_DATA'][0].get('TOWN', ''),
-        'postal_code': winner_data['CONTRACTOR_DATA'][0].get('POSTAL_CODE', ''),
-        'country': winner_data['CONTRACTOR_DATA'][0].get('COUNTRY', ''),
-        'email': winner_data['CONTRACTOR_DATA'][0].get('E_MAIL', ''),
-        'nuts': winner_data['CONTRACTOR_DATA'][0].get('NUTS', ''),
-        'website': winner_data['CONTRACTOR_DATA'][0].get('URL', ''),
+        'address': winner_data['CONTRACTOR_DATA'][0].get('ADDRESS'),
+        'town': winner_data['CONTRACTOR_DATA'][0].get('TOWN'),
+        'postal_code': winner_data['CONTRACTOR_DATA'][0].get('POSTAL_CODE'),
+        'country': country,
+        'email': winner_data['CONTRACTOR_DATA'][0].get('E_MAIL'),
+        'nuts': winner_data['CONTRACTOR_DATA'][0].get('NUTS'),
+        'website': winner_data['CONTRACTOR_DATA'][0].get('URL'),
 
     }
 
@@ -85,14 +95,16 @@ def create_or_get_winner(winner_data):
         defaults=defaults
     )
 
+    # Fix this garbage
+
     if not created:
         for field, value in defaults.items():
-            current_value = getattr(winner, field)
-            if current_value is not None:
-                if value not in current_value:
+            if field != 'country' and value is not None:
+                current_value = getattr(winner, field)
+                if current_value is not None and value not in current_value:
                     setattr(winner, field, f"{current_value}, {value}")
-            else:
-                setattr(winner, field, value)
+                else:
+                    setattr(winner, field, value)
 
         winner.save()
 
@@ -148,7 +160,7 @@ def create_contract_object(object_data):
 
 def create_contract(base_contract_data, authority, contract_object):
     return Contract.objects.create(
-        doc_id=base_contract_data.get('DATE_PUB'),
+        doc_id=base_contract_data.get('DOC_ID'),
         uri=base_contract_data.get('URI_DOC_ORIGINAL'),
         date_published=base_contract_data.get('DATE_PUB'),
         short_title=base_contract_data.get('SHORT_TITLE'),
@@ -187,7 +199,7 @@ class Command(BaseCommand):
     help = 'Import XML data from folder to Database'
 
     def handle(self, *args, **options):
-        root_directory = r'C:\Users\dandr\OneDrive\Documents\xml_test_medical\F03'
+        root_directory = BASE_DIR / 'api' / 'management' / 'test_documents'
 
         for folder_name, sub_folders, filenames in os.walk(root_directory):
             for filename in filenames:
@@ -198,27 +210,21 @@ class Command(BaseCommand):
 
                     self.stdout.write(f'[{get_current_time()}] - Working on {xml_file_path}...')
 
-                    blacklist, created = BlackListDocument.objects.get_or_create(document_id=filename)
+                    doc_id = filename.split('.')[0]
 
-                    try:
-                        if not created:
-                            self.stdout.write(self.style.WARNING(
-                                f'[{get_current_time()}] - {filename} is already processed! Continuing to next xml...'))
-                            continue
-
-                        data_dict = self.extract_data_from_xml(tree, xml_file_path)
-
-                        save_data_to_models(data_dict)
-
-                        self.stdout.write(self.style.SUCCESS(
-                            f'[{get_current_time()}] - Successfully saved data to database from {xml_file_path}'))
-
-                    except Exception as e:
-                        self.stdout.write(self.style.ERROR(
-                            f'[{get_current_time()}] - Error processing {filename}: {e}'))
+                    if Contract.objects.filter(doc_id=doc_id).exists():
                         self.stdout.write(self.style.WARNING(
-                            f'[{get_current_time()}] - Deleting {filename} from Database'))
-                        blacklist.delete()
+                            f'[{get_current_time()}] - {filename} is already processed! Continuing to next xml...'))
+                        continue
+
+                    data_dict = self.extract_data_from_xml(tree, xml_file_path)
+
+                    data_dict['BASE_CONTRACT_DATA']['DOC_ID'] = doc_id
+
+                    save_data_to_models(data_dict)
+
+                    self.stdout.write(self.style.SUCCESS(
+                        f'[{get_current_time()}] - Successfully saved data to database from {xml_file_path}'))
 
     def extract_data_from_xml(self, tree, xml_file_path):
         base_contract_data = extract_base_contract_data(tree)
