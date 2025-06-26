@@ -22,6 +22,14 @@ class CustomPaginator(PageNumberPagination):
 
 class HomeMapView(APIView):
     def get(self, request, *args, **kwargs):
+        country_map = {
+            country.id: {
+                "code": country.code,
+                "name": country.name
+            }
+            for country in Country.objects.all()
+        }
+
         country_data = Authority.objects.values('country').annotate(
             country_contracts=Count('contract')
         )
@@ -35,8 +43,15 @@ class HomeMapView(APIView):
         )
 
         result_data = {}
+
         for country_item in country_data:
-            country_code = country_item['country']
+            country_id = country_item['country']
+            country_info = country_map.get(country_id)
+
+            if not country_info:
+                continue
+
+            country_code = country_info['code']
 
             country_result = {
                 'country': country_code,
@@ -44,13 +59,11 @@ class HomeMapView(APIView):
                 'top_original_cpvs': {}
             }
 
-            cpvs_for_country = filter(lambda x: x['authority__country'] == country_code, original_cpv_counts)
-
+            cpvs_for_country = filter(lambda x: x['authority__country'] == country_id, original_cpv_counts)
             top_original_cpvs = sorted(cpvs_for_country, key=lambda x: x['original_cpv_count'], reverse=True)[:3]
 
             for cpv_item in top_original_cpvs:
                 cpv_key = f"{cpv_item['original_cpv__code']} - {cpv_item['original_cpv__name']}"
-
                 country_result['top_original_cpvs'][cpv_key] = cpv_item['original_cpv_count']
 
             result_data[country_code] = country_result
