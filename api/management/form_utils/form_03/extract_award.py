@@ -76,7 +76,7 @@ def extract_award_contract_winner_data(award_contract):
                     'VAL_TOTAL'] = award_content_helper.get_award_contract_awarded_contract_values_val_range_total_low(
                     award_contract_awarded_contract_values_val_range_total)
 
-                award_contract_data['VAL_TOTAL_CURRENCY'] = award_content_helper.get_val_total_currency(
+                award_contract_data['VAL_TOTAL_CURRENCY'] = award_content_helper.get_val_range_currency(
                     award_contract_awarded_contract_values_val_range_total)
 
                 award_contract_data['VAL_TOTAL_IN_EUROS'] = award_content_helper.get_val_total_in_euros(
