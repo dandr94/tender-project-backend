@@ -1,9 +1,11 @@
 from django.core.management.base import BaseCommand
+
+from settings.settings import BASE_DIR
 from ...models import Category
 import json
 from django.db import transaction
 
-file_path = r'C:\Users\dandr\OneDrive\Documents\exams\django-cpv\django_categories\js\filtered_data.json'
+file_path = BASE_DIR / 'api' / 'management' / 'cpv_codes' / 'cpv_codes.json'
 
 
 class Command(BaseCommand):
@@ -14,6 +16,7 @@ class Command(BaseCommand):
             data = json.load(file)
 
         with transaction.atomic():
+
             for item in data:
                 code = item.get('code')
                 name = item.get('name')
@@ -31,5 +34,4 @@ class Command(BaseCommand):
                 )
 
                 category.save()
-
-                self.stdout.write(self.style.SUCCESS(f"Category '{name}' imported successfully."))
+                self.stdout.write(self.style.SUCCESS(f"Category: {code} - {name} successfully saved to database!"))
