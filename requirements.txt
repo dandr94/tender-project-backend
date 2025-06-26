@@ -8,6 +8,7 @@ djangorestframework==3.14.0
 gunicorn==21.2.0
 packaging==23.2
 psycopg2-binary==2.9.9
+pycountry==23.12.11
 python-dotenv==1.0.0
 pytz==2023.3.post1
 sqlparse==0.4.4
