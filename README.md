@@ -61,6 +61,12 @@ Despite this, the project served as a valuable learning experience.
 
 ---
 
+## Preview
+
+![CMD](/preview/tender1.png)
+
+---
+
 ## How It Works (High-Level Flow)
 
 1. Command Execution:
@@ -201,3 +207,14 @@ The importer expects the following key XML elements and namespaces (TED/eForms-c
 
     ```bash
    python manage.py import_xml_documents_data_to_database
+
+## Related Repositories
+
+### Frontend
+
+The Tender Project has also a frontend which works with this project.  
+It provides the user simple interface to navigate and see simple information about various subjects.
+
+[Tender Project Frontend Repository](https://github.com/dandr94/tender-project-frontend)
+
+---
