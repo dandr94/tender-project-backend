@@ -1,3 +1,4 @@
+import pycountry
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import MinLengthValidator
@@ -57,17 +58,11 @@ class TenderUser(AbstractBaseUser, PermissionsMixin):
     objects = TenderUserManager()
 
 
-class BlackListDocument(models.Model):
-    DOCUMENT_UNIQUE_ID_MAX_LEN = 255
-
-    document_id = models.CharField(max_length=DOCUMENT_UNIQUE_ID_MAX_LEN, unique=True)
-
-
 class Category(MPTTModel):
     CODE_MAX_LEN = 20
     NAME_MAX_LEN = 255
 
-    code = models.CharField(max_length=CODE_MAX_LEN, unique=True, null=True, blank=True)
+    code = models.CharField(max_length=CODE_MAX_LEN, unique=True)
     name = models.CharField(max_length=NAME_MAX_LEN)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
@@ -75,28 +70,37 @@ class Category(MPTTModel):
         return f'{self.code} - {self.name}'
 
 
-class Authority(models.Model):
-    OFFICIAL_NAME_MAX_LEN = 255
-    ADDRESS_MAX_LEN = 255
-    TOWN_MAX_LEN = 255
-    CONTACT_POINT_MAX_LEN = 255
-    POSTAL_CODE_MAX_LEN = 255
-    FAX_MAX_LEN = 255
-    NATIONAL_ID_MAX_LEN = 255
-    COUNTRY_MAX_LEN = 255
-    PHONE_MAX_LEN = 255
-    EMAIL_MAX_LEN = 255
-    NUTS_MAX_LEN = 255
+class Country(models.Model):
+    COUNTRY_CODE_MAX_LEN = 2
+    COUNTRY_NAME_MAX_LEN = 255
 
-    official_name = models.CharField(max_length=OFFICIAL_NAME_MAX_LEN, unique=True)
+    code = models.CharField(max_length=COUNTRY_CODE_MAX_LEN, unique=True)
+    name = models.CharField(max_length=COUNTRY_NAME_MAX_LEN, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.name:
+            if self.code == 'UK':
+                self.name = 'United Kingdom'
+            else:
+                try:
+                    country = pycountry.countries.get(alpha_2=self.code)
+                    if country:
+                        self.name = country.name
+                except (AttributeError, pycountry.db.DataError):
+                    pass
+
+        super().save(*args, **kwargs)
+
+
+class Authority(models.Model):
+    official_name = models.TextField(unique=True)
     address = models.TextField(null=True, blank=True)
     town = models.TextField(null=True, blank=True)
     contact_point = models.TextField(null=True, blank=True)
     postal_code = models.TextField(null=True, blank=True)
     fax = models.TextField(null=True, blank=True)
     national_id = models.TextField(null=True, blank=True)
-    # USE FOREIGN KEY AND MAKE COUNTRY MODEL
-    country = models.CharField(null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True, blank=True)
     phone = models.TextField(null=True, blank=True)
     email = models.TextField(null=True, blank=True)
     nuts = models.TextField(null=True, blank=True)
@@ -104,14 +108,11 @@ class Authority(models.Model):
 
 
 class Winner(models.Model):
-    OFFICIAL_NAME_MAX_LEN = 255
-    COUNTRY_MAX_LEN = 255
-
-    official_name = models.CharField(max_length=OFFICIAL_NAME_MAX_LEN, unique=True)
+    official_name = models.TextField(unique=True)
     address = models.TextField(null=True, blank=True)
     town = models.TextField(null=True, blank=True)
     postal_code = models.TextField(null=True, blank=True)
-    country = models.CharField(max_length=COUNTRY_MAX_LEN, null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True, blank=True)
     email = models.TextField(null=True, blank=True)
     nuts = models.TextField(null=True, blank=True)
     val_total = models.FloatField(default=0)  # in Euros
