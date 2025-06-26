@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Authority, Winner, Category, Contract, ContractObject, ContractObjectItem, TenderUser
+from .models import Authority, Winner, Category, Contract, ContractObject, ContractObjectItem, TenderUser, Country
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -9,13 +9,23 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['username']
 
 
+class CountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Country
+        fields = ['code', 'name']
+
+
 class AuthoritySerializer(serializers.ModelSerializer):
+    country = CountrySerializer()
+
     class Meta:
         model = Authority
         fields = '__all__'
 
 
 class WinnerSerializer(serializers.ModelSerializer):
+    country = CountrySerializer()
+
     class Meta:
         model = Winner
         fields = '__all__'
@@ -28,7 +38,14 @@ class CPVInfoSerializer(serializers.Serializer):
 
 
 class CPVRankingSerializer(serializers.Serializer):
-    country = serializers.CharField(source='contract_object__contract__authority__country')
+    country = serializers.SerializerMethodField()
+
+    def get_country(self, obj):
+        return {
+            'code': obj['contract_object__contract__authority__country__code'],
+            'name': obj['contract_object__contract__authority__country__name']
+        }
+
     val_total = serializers.FloatField()
 
 
@@ -63,7 +80,6 @@ class CountryAuthoritySerializer(serializers.ModelSerializer):
 class CountryContractorSerializer(serializers.ModelSerializer):
     top_cpv_codes = CategorySerializer(many=True, read_only=True)
     total_value = serializers.DecimalField(max_digits=50, decimal_places=2, read_only=True)
-
 
     class Meta:
         model = Winner
