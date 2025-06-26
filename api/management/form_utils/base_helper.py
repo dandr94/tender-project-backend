@@ -94,6 +94,11 @@ class BaseHelper:
 
         return val_total_currency
 
+    def get_val_range_currency(self, obj):
+        val_range_currency = obj.get('CURRENCY')
+
+        return val_range_currency
+
     def get_val_total_estimate_currency(self, obj):
         val_total_estimate = self.find_element(obj, 'VAL_ESTIMATED_TOTAL')
 
