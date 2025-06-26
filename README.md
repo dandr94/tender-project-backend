@@ -1,4 +1,4 @@
-# XML Contract Data Importer for Django
+# TED Europa XML Contract Data Importer for Django
 
 A Django management command that automates the parsing and importing of contract award data from XML files into Django
 models.
